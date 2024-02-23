@@ -1,30 +1,50 @@
-/*conenido*/
-
-section {
-    margin: 10%;
-
+/*MODO OSCURO*/
+.dark .contenido .secion {
+    border: 1px solid rgb(255, 255, 255);
 
 }
-
-/* imgenes*/
+/*--------------*/
+/*CONTENIDO*/
+.contenido {
+    margin: 10% 10%;
+}
+/*SECION*/
+.secion {
+    padding: 10px;
+    overflow-y: auto;
+    white-space: nowrap;
+    border: 1px solid rgb(0, 0, 0);
+}
 
 img {
-    width: 200px;
-    height: 200px;
-}
+    display: inline-block;
+    width: 300px;
+    margin: 10px;
+    border-radius: 10px;
 
-.boton {
-    width: 250px;
-    height: 250px;
-    margin: 2%;
 }
-
-img:hover {
-    opacity: 70%;
+/*BARRA DE DESPLAZAMIENTO*/
+::-webkit-scrollbar {
+    height: 5px;
 }
-
-#i1:hover {
-    background-image: url(img/invitacion.png);
+::-webkit-scrollbar-thumb {
+    background-color: rgb(190, 190, 190);
+    border-radius: 10px;
 }
+/*---------MEDIDA DE CELULARES-----------*/
+@media screen and (max-width:500px) {
+    /*SECION*/
+    .secion {
+        max-width: 100%;
+        scrollbar-width: none;
+    }
 
-/**/
+    /*IMAGENES*/
+    img {
+        width: 200px;
+    }
+
+    img:hover {
+        opacity: 50%;
+    }
+}
