@@ -37,10 +37,10 @@
     /*contenido*/
     .contenido {
         margin: 10% 0%;
-
     }
     .conte {
         display: block;
+        min-height: 100%;
     }
     /*capitilo*/
     .d {
@@ -52,18 +52,20 @@
         position: absolute;
         margin: 0% 2%;
         width: 50%;
-        height: 68%;
+        min-height: 70%;
     }
     input:checked ~ .dias {
         display: block;
 
     }
     /*boton desplegar*/
+
     .lavel {
-        padding: 5px;
-        margin: 0% 2%;
+        margin: 0% 40% ;
+        padding: 6px;
         display: inline-block;
         font-size: 15px;
+        border-radius: 1rem ;
         border: 1px solid rgb(0, 0, 0);
     }
     .lavel:hover {
@@ -71,10 +73,18 @@
     }
     /*diario*/
     .diario {
+        margin: 5px;
         max-width: 90%;
-        height: 450px;
-        border-radius: 0rem 2rem 2rem 2rem;
+        height: 90%;
+        border-radius: 2rem;
         border: 1px solid rgb(0, 0, 0);
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
 
+    /*diario contenido*/
+    .di {
+        text-align: center;
+        font-size: 1.7rem;
     }
 }
