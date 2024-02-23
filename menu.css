@@ -16,6 +16,8 @@
 .menu {
     text-align: right;
     padding: 3%;
+    margin: 0% 0% 20px 0%;
+
 }
 
 .men {
@@ -44,7 +46,7 @@
     /*Buscador*/
 
 .menu {
-    margin: 0%;
+    margin: 0% 0% 30px 0%;
     background: none;
     padding: 2%;
 }
@@ -52,7 +54,7 @@
 /*menu desplegable*/
 
 .mostrar {
-    padding: 0;
+    margin-top: 0.0px;
     display: none;
     position: fixed;
     background: rgb(155, 153, 153);
