@@ -1,0 +1,15 @@
+a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.logo {
+    text-align: left;
+    margin: 5%;    
+}
+
+.menu {
+    display: flex;
+    text-align: right;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes</title>
+    <link rel="stylesheet" href="mensaje.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="modooc.css">
+    <script src="inicio.js"></script>
+    <script src="mensaje.js"></script>
+</head>
+<body class="fondo " class="dark">
+        <div class="menu">
+            <input type="checkbox" name="" id="menu1" class="mun">
+            <label for="menu1" class="label">☰</label>
+            <div class="mostrar" id="mostrar">
+                    <a href="inicio.html" class="men">Inicio</a>
+                    <a href="" class="men">Imgenes</a>
+                    <a href="" class="men">Diseños</a>
+            </div>
+                <button class="darkModeSwitch ms-2" id="switch">
+                    <span><i class="fas fa-sun"></i></span>
+                    <span><i class="fas fa-moon"></i></span> 
+                </button>
+        </div>    
+
+        <div class="contenido">    
+            <div class="conte">
+                <input type="checkbox"id="dias">
+                <label for="dias" class="d"><p class="lavel">capitulo</p></label>       
+                <div class="dias"><!--botones para mostar el conenido oculto -->
+                    <a onclick="mostrar('contenido1')"class="dia">tormenta desastre</a>
+                    <a onclick="mostrar('contenido2')"class="dia">dia 2</a>
+                    <a onclick="mostrar('contenido3')"class="dia">dia 3</a>
+                    <a onclick="mostrar('contenido4')"class="dia">dia 4</a>
+                    <a onclick="mostrar('')"class="dia">dia 5</a>
+                    <a onclick="mostrar('')"class="dia">dia 6</a>   
+                </div>
+                <div class="diario"> <!--contenido a mostrar-->
+                    <p id="contenido1" class="di">hola como eas cuanto tienpo </p>
+                    <p id="contenido2" class="di">hola como eas cuanto tienpo daniel</p>
+                    <p id="contenido3" class="di">hola como eas cuanto tienpo montalvo</p>
+                    <p id="contenido4" class="di">hola como eas cuanto tienpo uzcategui</p>
+                </div>
+        </div>
+</body>
+</html>

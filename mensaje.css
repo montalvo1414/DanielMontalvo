@@ -1,0 +1,80 @@
+#dias {
+    display: none;
+}
+.d {
+    display: none;
+}
+/*contenido*/
+.contenido {
+    margin: 5% 2%;
+}
+.conte {
+    display: flex;
+    height: 600px;
+
+}
+/*capitulos o dias*/ 
+.dias {
+    width: 30%;
+    background-color: rgb(112, 110, 110);
+    overflow-y: auto;
+    height: 600px;
+    scrollbar-width: none;
+}
+.dia {
+    display: block;
+    padding: 7%;
+    text-align: center;
+}
+/*diario*/
+.diario {
+    margin: 0% 2%;
+    padding: 3%;
+    background-color: rgb(129, 129, 129);
+    width: 100%;
+}
+@media screen and (max-width:500px) {
+    /*contenido*/
+    .contenido {
+        margin: 10% 0%;
+
+    }
+    .conte {
+        display: block;
+    }
+    /*capitilo*/
+    .d {
+        display: block;
+    }
+    /*desplegar*/
+    .dias {
+        display: none;
+        position: absolute;
+        margin: 0% 2%;
+        width: 50%;
+        height: 68%;
+    }
+    input:checked ~ .dias {
+        display: block;
+
+    }
+    /*boton desplegar*/
+    .lavel {
+        padding: 5px;
+        margin: 0% 2%;
+        display: inline-block;
+        font-size: 15px;
+        border: 1px solid rgb(0, 0, 0);
+    }
+    .lavel:hover {
+        background-color: rgb(151, 151, 151);
+    }
+    /*diario*/
+    .diario {
+        max-width: 90%;
+        height: 450px;
+        border-radius: 0rem 2rem 2rem 2rem;
+        border: 1px solid rgb(0, 0, 0);
+
+    }
+}

@@ -1,0 +1,91 @@
+/*Buscador*/
+
+.mun {
+    display: none;
+}
+
+.label {
+    display: none;
+}
+
+.img:hover {
+    opacity: 40% ;
+    color: rgb(255, 255, 255);
+}
+
+.menu {
+    text-align: right;
+    padding: 3%;
+}
+
+.men {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.men:hover {
+    background-color: rgb(109, 109, 109);
+    color: white;
+
+}
+
+.mostrar {
+    margin: 2%;
+    z-index: 2;
+}
+
+/*tamaño celular*/
+
+@media screen and (max-width:500px ){
+
+    /*Buscador*/
+
+.menu {
+    margin: 0%;
+    background: none;
+    padding: 2%;
+}
+
+/*menu desplegable*/
+
+.mostrar {
+    padding: 0;
+    display: none;
+    position: fixed;
+    background: rgb(155, 153, 153);
+    width: 90%;
+
+}
+
+input:checked ~ .mostrar {
+    display: block;
+}
+
+.label {
+    display:inline-block;
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    font-size: 30px;
+    padding: 0px 10px;
+
+}
+
+.men {
+    display: block;
+    text-align: center;
+}
+
+.label:hover {
+    background: rgba(107, 106, 106, 0.315);
+
+}
+
+.men:hover {
+    background-color: rgb(119, 119, 119);
+    color: white;
+}
+
+}
