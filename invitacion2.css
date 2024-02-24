@@ -85,7 +85,7 @@
 }
 
 @media screen and (max-width:500px) {
-    .fondo1 {
+     .fondo1 {
         background-color: rgb(252, 31, 186);
         background-image: none;
     }
@@ -95,6 +95,9 @@
     }
     .contenido {
         margin: 40% 0px;
+    }
+    .contenido1 {
+        margin: 30% 0px;
     }
     img {
         width: 200px;
@@ -121,15 +124,15 @@
         margin: 0px 10px;
     }
     .text1 {
-    text-align: center;
-    color: rgb(0, 0, 0);
-    font-size: 15px;
-    font-weight: bolder;
-}
+        text-align: center;
+        color: rgb(0, 0, 0);
+        font-size: 15px;
+        font-weight: bolder;
+    }
 
-.tex1 {
-    font-size: 20px;
-    font-weight: bolder;
+    .tex1 {
+        font-size: 20px;
+        font-weight: bolder;
     
-}
+    }
 }
