@@ -1,11 +1,10 @@
 /*fondo*/
 
 .fondo {
-    background:rgb(33, 1, 109);
+    background:#21016d;
     background-image: url(img/Sin\ título-1.png);
     background-repeat: no-repeat;
-
-
+    background-size: 100%;
 }
 /* contenido*/
 .contenido {
@@ -90,4 +89,95 @@ img {
 
 .img1 {
     text-align: center;
+}
+
+@media screen and (max-width:500px) {
+    /*fondo*/
+
+.fondo {
+    background:#21016d;
+}
+/* contenido*/
+.contenido {
+    margin: 15% 20%;
+}
+/*texto*/
+
+.tex {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.text {
+    text-align: center;
+    color: white;
+    font-size: 15px;
+}
+/*imagen*/
+
+.img {
+    text-align: center;
+}
+
+img {
+    height: 150px;
+}
+/*botones*/
+
+.boton {
+    margin: 0%;
+    font-size: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+.si {
+    color: white ;
+    background: green;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 0px 10px;
+}
+
+.no {
+    color: white;
+    background: red;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: 100px;
+    margin: 0px 10px;
+}
+
+/*fondo*/
+.fondo1 {
+    background: #21016d;
+    background-image: none;
+}
+
+/* contenido*/
+.contenido1 {
+    padding: 15% 10%;
+    text-align: center;
+}
+/*texto*/
+
+.text1 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.tex1 {
+    font-size: 20px;
+    font-weight: bolder;
+    
+}
+/*imagen*/
+
+.img1 {
+    text-align: center;
+}
+
 }
