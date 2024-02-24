@@ -85,6 +85,10 @@
 }
 
 @media screen and (max-width:500px) {
+    .fondo1 {
+        background-color: rgb(252, 31, 186);
+        background-image: none;
+    }
     .fondo {
         background-color: rgb(252, 31, 186);
         background-image: none;
