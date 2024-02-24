@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagenes</title>
+    <link rel="stylesheet" href="imagenes.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="modooc.css">
+    <script src="inicio.js"></script>
+    <script src="imagenes.js"></script>
+</head>
+<body class="fondo" class="dark">
+    <nav class="Menu">
+        <div class="menu">
+            <input type="checkbox" name="" id="menu1" class="mun">
+            <label for="menu1" class="label">☰</label>
+            <div class="mostrar" id="mostrar">
+                    <a href="inicio.html" class="men">Inicio</a>
+                    <a href="imagenes.html" class="men">Imgenes</a>
+                    <a href="#" class="men">Diseños</a>
+            </div>            
+
+            <div class="modo">
+                <button class="darkModeSwitch ms-2" id="switch">
+                    <span><i class="fas fa-sun"></i></span>
+                    <span><i class="fas fa-moon"></i></span> 
+                </button>
+            </div>
+    </nav>
+
+    <div class="contenido">
+        <div class="imagen" onclick="showImage('img/corazon 1.png')"><img src="img/corazon 1.png"></div>
+        <div class="imagen" onclick="showImage('img/corazon 2.png')"><img src="img/corazon 2.png"></div>
+        <div class="imagen" onclick="showImage('img/SM.png')"><img src="img/SM.png"></div>
+        <div class="imagen" onclick="showImage('img/SM2.png')"><img src="img/SM2.png"></div>
+    </div>
+    
+    <div class="modal" id="modal">
+        <span class="close" onclick="hideImage()">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+
+</body>
+</html>
