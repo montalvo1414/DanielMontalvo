@@ -120,4 +120,16 @@
         font-weight: 100px;
         margin: 0px 10px;
     }
+    .text1 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.tex1 {
+    font-size: 20px;
+    font-weight: bolder;
+    
+}
 }
