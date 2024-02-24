@@ -1,5 +1,4 @@
 *fondo*/
-
 .fondo {
     background:#21016d;
     background-image: url(img/Sin título-1.png);
@@ -81,7 +80,7 @@ img {
 }
 
 .tex1 {
-    font-size: 15px;
+    font-size: 30px;
     font-weight: bolder;
     color: white;
     
