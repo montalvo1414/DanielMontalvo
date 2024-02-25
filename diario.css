@@ -1,0 +1,128 @@
+/*MODO OSCURO*/
+.dark .diario {
+    background: #494949;
+}
+.dark .dias {
+    background: #666;
+}
+.dark .dia:hover {
+    background: #7a7a7a;
+}
+
+#dias {
+    display: none;
+}
+/*---------------------*/
+.d {
+    display: none;
+}
+/*contenido*/
+.contenido {
+    margin: 5% 2%;
+}
+.conte {
+    display: flex;
+    height: 600px;
+
+}
+/*capitulos o dias*/ 
+.dias {
+    width: 30%;
+    background-color: rgb(255, 255, 255);
+    overflow-y: auto;
+    height: 600px;
+    scrollbar-width: none;
+    border: 1px solid black;
+}
+.dia {
+    display: block;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+}
+
+.dia:hover {
+    background-color: #bebebe;
+}
+/*diario*/
+.diario {
+    margin: 0% 2%;
+    padding: 3%;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    border: 1px solid black;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+/*diario contenido*/
+.di {
+    padding: 10px;
+    text-align: center;
+    font-size: 1.7rem;
+}
+
+.di b {
+    font-size: 30px;
+}
+
+@media screen and (max-width:500px) {
+    /*contenido*/
+    .contenido {
+        margin: 10% 0%;
+    }
+    .conte {
+        display: block;
+        min-height: 100%;
+    }
+    /*capitilo*/
+    .d {
+        display: block;
+    }
+    /*desplegar*/
+    .dias {
+        display: none;
+        position: absolute;
+        margin: 0% 2%;
+        width: 50%;
+        min-height: 70%;
+    }
+    input:checked ~ .dias {
+        display: block;
+
+    }
+    /*boton desplegar*/
+
+    .lavel {
+        margin: 0% 40% ;
+        padding: 6px;
+        display: inline-block;
+        font-size: 15px;
+        border-radius: 1rem ;
+        border: 1px solid rgb(0, 0, 0);
+    }
+    .lavel:hover {
+        background-color: rgb(151, 151, 151);
+    }
+    /*diario*/
+    .diario {
+        margin: 5px;
+        max-width: 90%;
+        height: 90%;
+        border-radius: 2rem;
+        border: 1px solid rgb(0, 0, 0);
+        overflow-y: auto;
+        scrollbar-width: none;
+    }
+
+    /*diario contenido*/
+    .di {
+        padding: 10px;
+        text-align: center;
+        font-size: 1.7rem;
+    }
+
+    .di b {
+        font-size: 30px;
+    }
+}
