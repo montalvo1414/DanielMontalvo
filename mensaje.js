@@ -1,37 +1,39 @@
-document.addEventListener("DOMContentLoaded", function() {
-  // Ocultar el contenido del diario al cargar la página
-  var elementosDiario = document.querySelectorAll('.diario .di');
-  for (var i = 0; i < elementosDiario.length; i++) {
-    elementosDiario[i].style.display = 'none';
-  }
-});
+var selectedContact = null;
 
-function mostrar(id) {
-  var elementoMostrar = document.getElementById(id);
-  if (elementoMostrar.style.display === 'block') {
-    elementoMostrar.style.display = 'none';
-  } else {
-    // Ocultar todos los elementos del diario antes de mostrar el deseado
-    var elementosDiario = document.querySelectorAll('.diario .di');
-    for (var i = 0; i < elementosDiario.length; i++) {
-      elementosDiario[i].style.display = 'none';
+function selectContact(contact) {
+    selectedContact = contact;
+    document.getElementById("chat-container").style.display = "block";
+    document.getElementById("mensajes").innerHTML = ""; // Clear previous messages
+}
+
+function sendMessage() {
+    var messageInput = document.getElementById("mensajes-input");
+    var messageText = messageInput.value.trim();
+
+    if (messageText !== "" && selectedContact !== null) {
+        var messagesContainer = document.getElementById("mensajes");
+        var messageDiv = document.createElement("div");
+        messageDiv.className = "mensaje";
+        messageDiv.textContent = messageText;
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        messageInput.value = "";
     }
-    elementoMostrar.style.display = 'block'; 
-  }
-
-  // Verificar si estamos en el viewport definido en @media
-  var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-  if (viewportWidth <= 500) {
-    var dias = document.querySelector('.dias');
-    dias.style.display = 'none';
-  }
-  // Agregar evento clic a los elementos con la clase 'lavel' para mostrar el elemento 'dias'
-var lavel = document.querySelectorAll('.lavel');
-for (var i = 0; i < lavel.length; i++) {
-  lavel[i].addEventListener('click', function() {
-    var dias = document.querySelector('.dias');
-    dias.style.display = 'block';
-  });
-}
 }
 
+function hideContacts() {
+    var width = window.innerWidth;
+    if (width <= 600) { // Verificar si el ancho de la ventana es menor o igual a 600px
+        var contacts = document.getElementById("contactos");
+        contacts.style.display = "none";
+    }
+}
+
+function toggleContacts() {
+    var contacts = document.getElementById("contactos");
+    if (contacts.style.display === "none" || contacts.style.display === "") {
+        contacts.style.display = "block";
+    } else {
+        contacts.style.display = "none";
+    }
+}

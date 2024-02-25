@@ -1,90 +1,122 @@
-#dias {
-    display: none;
-}
-.d {
-    display: none;
-}
-/*contenido*/
+/*----CONTENODO-----*/
 .contenido {
-    margin: 5% 2%;
-}
-.conte {
     display: flex;
-    height: 600px;
-
+    max-width: 90%;
+    min-height: 500px;
+    margin: auto;
+    border: 2px solid #ff0000;
 }
-/*capitulos o dias*/ 
-.dias {
-    width: 30%;
-    background-color: rgb(112, 110, 110);
-    overflow-y: auto;
-    height: 600px;
+
+/*----CHAT CONTENIDO-----*/
+
+.chat-container {
+    background-color: #b4b4b4;
+    width: 100%;
+    height: 500px;
+    padding: 20px;
+    position: relative;
+    display: block;
+}
+.mensajes {
+    margin: 2px;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    overflow-x: hidden;
     scrollbar-width: none;
 }
-.dia {
-    display: block;
-    padding: 7%;
+
+.mensajes:last-child {
+    margin-bottom: 0;
+}
+
+.mensaje {
+    background-color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.envia {
+    margin: auto;
+    display: flex;
+    bottom: 10px;
+}
+input[type="text"] {
+    width: calc(90% - 70px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #fcfcfc;
+    margin: auto;
+}
+.button {
+    background-color: rgb(62, 145, 253);
+    border-radius: 100%;
+    border: 0px;
+    padding: 10px;
+}
+.button img {
+    width: 20px;
     text-align: center;
+
 }
-/*diario*/
-.diario {
-    margin: 0% 2%;
-    padding: 3%;
-    background-color: rgb(129, 129, 129);
-    width: 100%;
+/*------CONCTATOS-----*/
+.contactos {
+    padding: 0px;
+    width: 30%;
+    background-color: #c0c0c0;
+    display: block;
 }
-@media screen and (max-width:500px) {
-    /*contenido*/
-    .contenido {
-        margin: 10% 0%;
-    }
-    .conte {
-        display: block;
-        min-height: 100%;
-    }
-    /*capitilo*/
-    .d {
-        display: block;
-    }
-    /*desplegar*/
-    .dias {
+ul {
+    margin: 2px;
+    padding: 0px;
+}
+li {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0px;
+
+}
+.contac {
+    display: none;
+}
+li:hover {
+    background-color: #dadada;
+
+}
+@media screen and (max-width:600px) {
+    .contactos {
         display: none;
-        position: absolute;
-        margin: 0% 2%;
-        width: 50%;
-        min-height: 70%;
+        z-index: 1;
+        margin: auto;
+        position: fixed;
     }
-    input:checked ~ .dias {
+    .envia {
+        margin: auto;
+    }
+    .contenido {
+        display: inline;
+        margin: auto;
+        border: none;
+
+    }
+    .chat-container {
+        max-width: 80%;
+        margin: auto;
+    }
+    .contac {
+        margin: 10px;
         display: block;
+        border-radius: 100%;
+        width: 40px;
+        height: 40px;
+    }
+    .contac img {
+        width: 20px;
+        height: 20px;
 
-    }
-    /*boton desplegar*/
-
-    .lavel {
-        margin: 0% 40% ;
-        padding: 6px;
-        display: inline-block;
-        font-size: 15px;
-        border-radius: 1rem ;
-        border: 1px solid rgb(0, 0, 0);
-    }
-    .lavel:hover {
-        background-color: rgb(151, 151, 151);
-    }
-    /*diario*/
-    .diario {
-        margin: 5px;
-        max-width: 90%;
-        height: 90%;
-        border-radius: 2rem;
-        border: 1px solid rgb(0, 0, 0);
-        overflow-y: auto;
-        scrollbar-width: none;
-    }
-
-    /*diario contenido*/
-    .di {
-        text-align: center;
-        font-size: 1.7rem;
     }
 }
