@@ -1,3 +1,102 @@
+.dark #cuenta {
+    background-color: rgba(255, 255, 255, 0.308);
+}
+.dark .datos {
+    background-color: black;
+    color: white;
+}
+.dark .perfil {
+    background-color: white;
+}
+.dark .im{
+    filter: invert(100%);
+}
+.dark .label {
+    color: white;
+}
+/**/
+.iniciar {
+    position: absolute;
+    margin: 10px;
+    z-index: 4;
+}
+.perfil {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    margin: auto;
+}
+.perfil img {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    border-radius: 50%;
+    position: absolute;
+    object-fit: cover;
+}
+.perfil img:hover {
+    background: rgba(131, 131, 131, 0.747);
+}
+/*----------CUENTA O PERFIL---------*/
+#cuenta {
+    background-color: rgba(0, 0, 0, 0.521);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(0); /* Mueve el div fuera de la pantalla */
+    animation: slideIn 0.5s forwards; /* Animación de entrada *//
+}
+@keyframes slideIn {
+    from {
+      transform: translateX(-100%); /* Posición inicial */
+    }
+    to {
+      transform: translateX(0%); /* Posición final */
+    }
+}
+.datos {
+    position: relative;
+    padding: 50px;
+    width: 25%;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.ImgPerfil {
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid black;
+    overflow: hidden;
+}
+.ImgPerfil img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+
+}
+#cerrarCuenta {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bolder;
+}
+p {
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.modo {
+    position: absolute;
+    right: 10px;
+}
 /*Buscador*/
 
 .mun {
@@ -8,16 +107,10 @@
     display: none;
 }
 
-.img:hover {
-    opacity: 40% ;
-    color: rgb(255, 255, 255);
-}
-
 .menu {
-    text-align: right;
     padding: 3%;
     margin: 0% 0% 20px 0%;
-
+    text-align: right;
 }
 
 .men {
@@ -37,11 +130,13 @@
 .mostrar {
     margin: 2%;
     z-index: 2;
+    text-align: right;
 }
+
 
 /*tamaño celular*/
 
-@media screen and (max-width:500px ){
+@media screen and (max-width:500px ) {
 
     /*Buscador*/
 
@@ -54,14 +149,25 @@
 /*menu desplegable*/
 
 .mostrar {
-    margin-top: 0.0px;
+    margin: auto;
     display: none;
     position: fixed;
     background: rgb(155, 153, 153);
     width: 90%;
-
+    top: -100%;
+    left: 0;
+    right: 0;
+    transform: translateX(0); 
+    animation: slideI 0.5s forwards;
 }
-
+@keyframes slideI {
+    from {
+        top: -100%; 
+    }
+    to {
+        top: 10%; 
+    } 
+}
 input:checked ~ .mostrar {
     display: block;
 }
@@ -89,5 +195,19 @@ input:checked ~ .mostrar {
     background-color: rgb(119, 119, 119);
     color: white;
 }
+/*-----------CUENTA O PERFIL----------*/
+.perfil img {
+    margin: 10px;
+}
+#cuenta {
+    width: 100%;
+}
 
+.iniciar {
+    margin: 0px;
+}
+.perfil img {
+    width: 30px;
+    height: 30px;
+}
 }

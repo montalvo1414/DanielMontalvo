@@ -4,31 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diseño Montalvo</title>
-    <link rel="stylesheet" href="incio.css">
+    <link rel="stylesheet" href="inicio.css">
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="modooc.css">
     <script src="inicio.js"></script>
 </head>
-<body class="fondo" class="dark">
+<body class="fondo-dark">
+    <div class="iniciar">
+        <a href="#" class="perfil"><img src="img/contacto.png" class="im"></a>
+
+            <div class="cuenta" id="cuenta" style="display: none;">
+
+                <div class="datos">
+                    <span id="cerrarCuenta">&times;</span>
+                    <div class="ImgPerfil">
+                        <img src="img/corazon 2.png" >
+                    </div>
+                    <p>Nombre :</p>
+                    <p>Correo :</p>
+                    <p>modo </p>
+                    <div class="modo">
+                        <button class="darkModeSwitch ms-2" id="switch">
+                            <span><i class="fas fa-sun"></i></span>
+                            <span><i class="fas fa-moon"></i></span> 
+                        </button>
+                    </div>
+                </div>
+            </div>
+    </div>
     <nav class="Menu">
         <div class="menu">
             <input type="checkbox" name="" id="menu1" class="mun">
             <label for="menu1" class="label">☰</label>
             <div class="mostrar" id="mostrar">
-                    <a href="index.html" class="men">Inicio</a>
-                    <a href="imagenes.html" class="men">Imgenes</a>
-                    <a href="#" class="men">Diseños</a>
-            </div>            
-
-            <div class="modo">
-                <button class="darkModeSwitch ms-2" id="switch">
-                    <span><i class="fas fa-sun"></i></span>
-                    <span><i class="fas fa-moon"></i></span> 
-                </button>
+                <a href="index.html" class="men">Inicio</a>
+                <a href="imagenes.html" class="men">Imágenes</a>
+                <a href="#" class="men">Diseños</a>
             </div>
+        </div>            
     </nav>
- 
-
     <div class="contenido">
             <a href="diario.html" class="conte"><img src="img/diario.png" class="img"></a>
             <a href="invitaciones.html" class="conte"><img src="img/invitacion.png" class="img"></a>

@@ -1,0 +1,31 @@
+.dark {
+    background: rgb(0, 0, 0);
+}
+
+.dark .contenido {
+    background: rgb(53, 53, 53);
+}
+
+/* contenido*/
+.fondo {
+    background: white;
+}
+.contenido {
+    display: block;
+    text-align: center;
+    margin: 0rem 3rem;
+    padding: 2rem 0rem;
+    background: #fdfdfd;
+    border-radius: 10px;
+    border: 3px solid black;
+}
+
+.img {
+    width: 100px;
+    height: 100px;
+    margin: 1rem;
+}
+
+.img:hover {
+    opacity: 40%;
+}

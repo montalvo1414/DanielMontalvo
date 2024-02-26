@@ -30,3 +30,21 @@ document.addEventListener('DOMContentLoaded', function() {
         enableDarkMode();
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    var perfil = document.querySelector('.perfil');
+    var cuenta = document.getElementById('cuenta');
+    var cerrarCuentaBtn = document.getElementById('cerrarCuenta'); // Agregar esta línea
+  
+    perfil.addEventListener('click', function(event) {
+      event.preventDefault();
+      if (cuenta.style.display === 'none') {
+        cuenta.style.display = 'block';
+      } else {
+        cuenta.style.display = 'none';
+      }
+    });
+    cerrarCuentaBtn.addEventListener('click', function() {
+        cuenta.style.display = 'none'; // Modificar esta línea
+    });
+});

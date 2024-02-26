@@ -1,23 +1,10 @@
-/* Estilos oscuros */
-.dark, .dark .men, .dark .label {
-    color: white;
-}
-.dark {
-    background: rgb(0, 0, 0);
-}
-.dark .men:hover {
-    background-color: rgb(119, 119, 119);
-}
-.dark .img:hover {
-    opacity: 40%;
-}
 
 /* Estilos del botón de modo oscuro */
 .darkModeSwitch {
     margin: 0% 0%;
     background: #000000;
     display: flex;
-    position: absolute;
+    position: relative;
     outline: none;
     border: none;
     border-radius: 3rem;
