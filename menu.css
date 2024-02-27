@@ -41,13 +41,16 @@
 #cuenta {
     background-color: rgba(0, 0, 0, 0.521);
     position: fixed;
-    width: 100%;
+    width: 25%;
     height: 100%;
     top: 0;
     left: 0;
     right: 0;
     transform: translateX(0); /* Mueve el div fuera de la pantalla */
     animation: slideIn 0.5s forwards; /* Animación de entrada *//
+}
+.datos {
+    margin: 10px;
 }
 @keyframes slideIn {
     from {
@@ -56,15 +59,6 @@
     to {
       transform: translateX(0%); /* Posición final */
     }
-}
-.datos {
-    position: relative;
-    padding: 50px;
-    width: 25%;
-    background-color: rgb(255, 255, 255);
-    height: 100%;
-    top: 0;
-    left: 0;
 }
 .ImgPerfil {
     margin: auto;
@@ -196,16 +190,14 @@ input:checked ~ .mostrar {
     color: white;
 }
 /*-----------CUENTA O PERFIL----------*/
-.perfil img {
-    margin: 10px;
-}
 #cuenta {
     width: 100%;
 }
 
-.iniciar {
-    margin: 0px;
+.perfil img {
+    margin: 10px;
 }
+
 .perfil img {
     width: 30px;
     height: 30px;
