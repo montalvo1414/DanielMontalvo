@@ -19,6 +19,8 @@
 /*contenido*/
 .contenido {
     margin: 5% 2%;
+    border-radius: 10px;
+    border: 3px solid black;
 }
 .conte {
     display: flex;
@@ -30,9 +32,8 @@
     width: 30%;
     background-color: rgb(255, 255, 255);
     overflow-y: auto;
-    height: 600px;
+    height: 100%;
     scrollbar-width: none;
-    border: 1px solid black;
 }
 .dia {
     display: block;
@@ -46,11 +47,9 @@
 }
 /*diario*/
 .diario {
-    margin: 0% 2%;
     padding: 3%;
     background-color: rgb(255, 255, 255);
     width: 100%;
-    border: 1px solid black;
     overflow-y: auto;
     scrollbar-width: none;
 }
