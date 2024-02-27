@@ -10,15 +10,17 @@
 /*----CHAT CONTENIDO-----*/
 
 .chat-container {
-    background-color: #b4b4b4;
     width: 100%;
+    max-width: 80%;
+    background-color: #000000;
     height: 500px;
-    padding: 20px;
-    position: relative;
+    padding: 7px;
     display: block;
+    
 }
 .mensajes {
-    margin: 2px;
+    position: relative;
+    margin: 3px;
     height: 90%;
     display: flex;
     flex-direction: column;
@@ -32,12 +34,17 @@
 }
 
 .mensaje {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(107, 107, 107);
+    font-weight: bolder;
+    color: white;
     padding: 5px 10px;
     border-radius: 10px;
     margin-bottom: 5px;
-    max-width: 80%;
+    max-width: 50%;
+    max-height: 80%;
     word-wrap: break-word;
+    overflow-x: hidden;
+    scrollbar-width: none;
 }
 
 .envia {
@@ -48,8 +55,8 @@
 input[type="text"] {
     width: calc(90% - 70px);
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #fcfcfc;
+    border-radius: 50px;
+    border: 1px solid #ffffff;
     margin: auto;
 }
 .button {
@@ -96,6 +103,10 @@ li:hover {
     }
     .envia {
         margin: auto;
+    }
+    .chat-container {
+        border: 3px solid red;
+        
     }
     .contenido {
         display: inline;

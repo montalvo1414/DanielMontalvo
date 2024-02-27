@@ -86,6 +86,7 @@
         margin: 0% 2%;
         width: 50%;
         min-height: 70%;
+        z-index: 1;
     }
     input:checked ~ .dias {
         display: block;
