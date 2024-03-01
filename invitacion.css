@@ -1,7 +1,3 @@
-* {
-    box-sizing: border-box;
-    padding: 0 5px;
-}
 
 /*MODO OSCURO*/
 .dark .contenido .secion {
@@ -12,6 +8,7 @@
 /*CONTENIDO*/
 .contenido {
     margin: 10% 10%;
+    box-sizing: border-box;
 }
 /*SECION*/
 p {
