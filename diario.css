@@ -1,16 +1,23 @@
 * {
     box-sizing: border-box;
+    padding: 0 5px;
 }
 
 /*MODO OSCURO*/
 .dark {
     background-color: black;
 }
+.dark .lavel {
+    background-color: #494949;
+    color: white;
+}
 .dark .diario {
     background: #494949;
+    color: white;
 }
 .dark .dias {
     background: #666;
+    color: white;
 }
 .dark .dia:hover {
     background: #7a7a7a;
@@ -53,7 +60,7 @@
 }
 /*diario*/
 .diario {
-    padding: 3%;
+    padding: 10px;
     background-color: rgb(255, 255, 255);
     width: 100%;
     overflow-y: auto;

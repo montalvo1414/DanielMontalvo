@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    padding: 0 5px;
+}
+
 /*MODO OSCURO*/
 .dark .contenido .secion {
     border: 1px solid rgb(255, 255, 255);
