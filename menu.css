@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 .dark #cuenta {
     background-color: rgb(92, 91, 91);
     color: white;
@@ -29,7 +32,6 @@
     width: 50px;
     height: 50px;
     overflow: hidden;
-
     z-index: 4;
 }
 .perfil img {
@@ -60,8 +62,34 @@
     z-index: 7;
 }
 .datos {
+    position: relative;
     margin: 10px;
+    padding: 10px;
+    height: 95%;
 }
+
+/*redes*/
+.redes {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    padding: 5px;
+    bottom: 10px;
+    width: calc(100% - 20px);
+    justify-content: center;
+}
+.redes .red {
+    max-width: 50px;
+    height: 50px;
+    margin: 2px;
+}
+.red img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+  
 @keyframes slideIn {
     from {
       transform: translateX(-100%); /* Posición inicial */
