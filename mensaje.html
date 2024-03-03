@@ -27,6 +27,11 @@
                             <span><i class="fas fa-moon"></i></span> 
                         </button>
                     </div>
+                    <div class="redes">
+                        <div class="red"><a href="http://wa.me/90858828" ><img src="img/whastapp.png"></a></div>
+                        <div class="red"><a href="" ><img src="img/facebook.png"></a></div>
+                        <div class="red"><a href="" ><img src="img/instagram.png"></a></div>
+                    </div>
                 </div>
             </div>
     
@@ -45,9 +50,9 @@
         <button onclick="toggleContacts()" class="contac"><img src="img/contacto.png"></button>
         <div class="contactos" id="contactos">
             <ul id="contact">
-                <li onclick="selectContact('John'); hideContacts()">John</li>
-                <li onclick="selectContact('Alice'); hideContacts()">Alice</li>
-                <li onclick="selectContact('Bob'); hideContacts()">Bob</li>
+                <li onclick="selectContact('John') " tabindex="0">John</li>
+                <li onclick="selectContact('Alice') " tabindex="0">Alice</li>
+                <li onclick="selectContact('Bob') " tabindex="0">Bob</li>
             </ul>    
         </div>
         
@@ -59,7 +64,7 @@
                 <input type="text" id="mensajes-input" placeholder="Type your message...">
                 <button onclick="sendMessage()" class="button"><img src="img/enviar.png"></button>
             </div>
-        </div>      
+        </div>  
     </div>
 
 </body>

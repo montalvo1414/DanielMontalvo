@@ -156,7 +156,6 @@ p {
     color: white;
 
 }
-
 .mostrar {
     margin: 2%;
     z-index: 2;
@@ -171,7 +170,8 @@ p {
     /*Buscador*/
 
 .menu {
-    margin: 0% 0% 30px 0%;
+    margin: 10px;
+    text-align: right;
     background: none;
     padding: 2%;
 }
@@ -229,13 +229,30 @@ input:checked ~ .mostrar {
 #cuenta {
     width: 100%;
 }
-
-.perfil img {
-    margin: 10px;
+.perfil {
+    margin: 30px;   
 }
-
 .perfil img {
-    width: 30px;
+    margin: 30px;
+    width: 20px;
     height: 30px;
 }
+}
+@media screen and (max-width:700px ){
+    #cuenta {
+        width: 50%;
+    }
+    .perfil {
+        margin: 0px;
+    }
+    .perfil img {
+        width: 30px;
+        height: 30px;
+    }
+    .menu {
+        margin: 15px ;
+        text-align: right;
+        background: none;
+        padding: 3%;
+    }
 }
