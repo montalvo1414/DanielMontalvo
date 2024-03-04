@@ -9,6 +9,8 @@ function selectContact(contact) {
     if (width <= 500) { // Verificar el ancho de la ventana
         contacts.style.display = "none"; // Ocultar la lista de contactos solo si el ancho es menor o igual a 500px
         chatContainer.style.display = "block"; // Mostrar el chat-container
+    } else {
+        chatContainer.style.display = "block"
     }
     
     document.getElementById("mensajes").innerHTML = ""; // Clear previous messages
