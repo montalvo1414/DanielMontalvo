@@ -40,8 +40,8 @@ function hideContacts() {
         contacts.style.display = "block";
         chatContainer.style.display = "none";
     } else { // Si el ancho es mayor a 600px o no hay contacto seleccionado, mostrar tanto los contactos como el chat
-        contacts.style.display = "block";
-        chatContainer.style.display = "none";
+        contacts.style.display = "none";
+        chatContainer.style.display = "block";
     }
 }
 // Asegúrate de llamar a hideContacts al cargar la página y en cualquier evento de redimensionamiento de la ventana
