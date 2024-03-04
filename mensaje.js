@@ -56,7 +56,7 @@ function toggleContacts() {
     
     if (contacts.style.display === "none" || chatContainer.style.display === "none") {
         contacts.style.display = "block";
-        chatContainer.style.display = "none";
+        chatContainer.style.display = "block";
     } else {
         contacts.style.display = "none";
         chatContainer.style.display = "block";
