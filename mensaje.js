@@ -1,22 +1,22 @@
 var selectedContact = null;
 
-function selectContact(contact) {
+function selecionar(contact) {
     selectedContact = contact;
     var width = window.innerWidth;
     var contacts = document.getElementById("contactos");
     var chatContainer = document.getElementById("chat-container");
 
-    if (width <= 500) { // Verificar el ancho de la ventana
-        contacts.style.display = "none"; // Ocultar la lista de contactos solo si el ancho es menor o igual a 500px
-        chatContainer.style.display = "block"; // Mostrar el chat-container
+    if (width <= 500) { 
+        contacts.style.display = "none"; 
+        chatContainer.style.display = "block"; 
     } else {
         chatContainer.style.display = "block"
     }
     
-    document.getElementById("mensajes").innerHTML = ""; // Clear previous messages
+    document.getElementById("mensajes").innerHTML = ""; 
 }
 
-function sendMessage() {
+function enviarmnesaje() {
     var messageInput = document.getElementById("mensajes-input");
     var messageText = messageInput.value.trim();
 
@@ -31,25 +31,25 @@ function sendMessage() {
     }
 }
 
-function hideContacts() {
+function ocultarcontactos() {
     var width = window.innerWidth;
     var contacts = document.getElementById("contactos");
     var chatContainer = document.getElementById("chat-container");
 
-    if (width <= 500 && selectedContact !== null) { // Si el ancho es menor o igual a 500px y hay un contacto seleccionado, mostrar el chat y ocultar los contactos
+    if (width <= 500 && selectedContact !== null) { 
         contacts.style.display = "none";
         chatContainer.style.display = "block";
-    } else if (width <= 500) { // Si el ancho es menor o igual a 500px, mostrar los contactos y ocultar el chat
+    } else if (width <= 500) { 
         contacts.style.display = "block";
         chatContainer.style.display = "none";
-    } else { // Si el ancho es mayor a 500px, mostrar tanto los contactos como el chat
+    } else {
         contacts.style.display = "block";
-        chatContainer.style.display = "block";
+        chatContainer.style.display = "none";
     }
 }
-// Asegúrate de llamar a hideContacts al cargar la página y en cualquier evento de redimensionamiento de la ventana
-window.onload = hideContacts; // Llamar a hideContacts al cargar la página
-window.onresize = hideContacts;
+
+window.onload = ocultarcontactos; 
+window.onresize = ocultarcontactos;
 
 function toggleContacts() {
     var contacts = document.getElementById("contactos");

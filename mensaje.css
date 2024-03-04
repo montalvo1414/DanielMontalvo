@@ -44,7 +44,6 @@
     border-radius: 10px;
     margin-bottom: 5px;
     max-width: 50%;
-    max-height: 80%;
     word-wrap: break-word;
     scrollbar-width: none;
 }
@@ -149,4 +148,3 @@ li:focus {
         position: relative;
     }
 }
-
