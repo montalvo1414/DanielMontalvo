@@ -44,7 +44,7 @@ function ocultarcontactos() {
         chatContainer.style.display = "none";
     } else {
         contacts.style.display = "block";
-        chatContainer.style.display = "none";
+        chatContainer.style.display = "block";
     }
 }
 
