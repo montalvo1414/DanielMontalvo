@@ -2,9 +2,6 @@ var selectedContact = null;
 
 function selectContact(contact) {
     selectedContact = contact;
-    document.getElementById("chat-container").style.display = "block";
-    document.getElementById("mensajes").innerHTML = ""; // Clear previous messages
-    
     var width = window.innerWidth;
     var contacts = document.getElementById("contactos");
     var chatContainer = document.getElementById("chat-container");
@@ -13,6 +10,8 @@ function selectContact(contact) {
         contacts.style.display = "none"; // Ocultar la lista de contactos solo si el ancho es menor o igual a 500px
         chatContainer.style.display = "block"; // Mostrar el chat-container
     }
+    
+    document.getElementById("mensajes").innerHTML = ""; // Clear previous messages
 }
 
 function sendMessage() {
