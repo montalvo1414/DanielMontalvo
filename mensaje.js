@@ -54,11 +54,11 @@ function toggleContacts() {
     var contacts = document.getElementById("contactos");
     var chatContainer = document.getElementById("chat-container");
     
-    if (contacts.style.display === "none" || contacts.style.display === "none") {
+    if (contacts.style.display === "none" || chatContainer.style.display === "none") {
         contacts.style.display = "block";
-        chatContainer.style.display = "none"
+        chatContainer.style.display = "none";
     } else {
-        contacts.style.display = "block";
-        chatContainer.style.display = "none"
+        contacts.style.display = "none";
+        chatContainer.style.display = "block";
     }
 }
