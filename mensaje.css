@@ -43,10 +43,9 @@
     color: white;
     border-radius: 10px;
     margin-bottom: 5px;
-    width: 40%;
+    max-width: 50%;
     max-height: 80%;
     word-wrap: break-word;
-    overflow-x: hidden;
     scrollbar-width: none;
 }
 
@@ -150,3 +149,4 @@ li:focus {
         position: relative;
     }
 }
+
