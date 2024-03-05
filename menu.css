@@ -240,7 +240,7 @@ input:checked ~ .mostrar {
 }
 @media screen and (max-width:700px ){
     #cuenta {
-        width: 50%;
+        width: 100%;
     }
     .perfil {
         margin: 0px;
