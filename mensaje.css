@@ -1,10 +1,24 @@
+/*----MODO OSCURO-----*/
+.dark {
+    background-color: black;
+}
 
+.dark .contac {
+    background-color: black;
+
+}
+.dark .contac img {
+    filter: invert(100%);
+}
+.dark .chat-container {
+    background-color: #000000;
+}
 /*----CONTENODO-----*/
 .contenido {
     position: relative;
     box-sizing: border-box;
     display: flex;
-    max-width: 90%;
+    max-width: 80%;
     min-height: 500px;
     margin: auto;
     border: 2px solid #ff0000;
@@ -15,7 +29,7 @@
 .chat-container {
     position: relative;
     width: 80%;
-    background-color: #000000;
+    background-color: #ffffff;
     height: 500px;
     display: block;
     padding: 10px;
@@ -49,30 +63,33 @@
 }
 
 .envia {
-    width: calc(100% - 20px);
     position: relative;
-    bottom: 20px;
+    display: flex;
+    max-width: 100%;
+    margin: 3px;
+    bottom: 10px;
     left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
+    transform: translate(-50%);
 }
 input[type="text"] {
-    width: 70%;
-    padding: 10px;
+    width: 90%;
+    height: 30px;
+    padding: 2px;
+    margin-right: 10px;
     border-radius: 50px;
-    border: 1px solid #ffffff;
-    margin: 10px;
-
+    border: 2px solid black;
 }
+
 .button {
-    background-color: rgb(62, 145, 253);
+    width: 40px;
+    padding: 3px;
+    background-color: blue;
+    border: none;
     border-radius: 50%;
-    border: 0px;
-    padding: 10px;
 }
 .button img {
-    width: 20px;
-    text-align: center;
+    width: 25px;
+    height: 25px;
 }
 /*------CONCTATOS-----*/
 .contactos {
@@ -94,6 +111,7 @@ li {
 }
 .contac {
     display: none;
+    border: none;
 }
 
 li:focus {
@@ -103,18 +121,19 @@ li:focus {
 }
 
 @media screen and (max-width:500px) {
+    .contenido {
+        max-width: 80%;
+    }
+
     .contactos {
         display: none;
         z-index: 1;
         margin:auto;
-        width: calc(100% - 20px);
+        width: 90%;
         height: 500px; 
     }
     .contact {
         display: inline;
-    }
-    .envia {
-        position: relative;
     }
     .chat-container {
         border: 3px solid red;
@@ -146,5 +165,10 @@ li:focus {
         width: 40px;
         height: 40px;
         position: relative;
+    }
+
+    .button img {
+        width: 20px;
+        height: 20px;
     }
 }
