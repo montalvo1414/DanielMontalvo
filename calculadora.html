@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="img/logo.png">
-    <title>Diseño Montalvo</title>
+    <title>Calculadora</title>
     <link rel="icon" href="img/logo.png" type="icon">
-    <link rel="stylesheet" href="inicio.css">
+    <link rel="stylesheet" href="calculadora.css">
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="modooc.css">
     <script src="inicio.js"></script>
+    <script src="calculadora.js"></script>
 </head>
 <body class="fondo-dark">
     <a href="#" class="perfil"><img src="img/contacto.png" class="im"></a>
@@ -47,12 +47,39 @@
             </div>
         </div>            
     </nav>
-    <div class="contenido">
-            <a href="diario.html" class="conte"><img src="img/diario.png" class="img"></a>
-            <a href="invitaciones.html" class="conte"><img src="img/invitacion.png" class="img"></a>
-            <a href="mensaje.html" class="conte"><img src="img/mensaje.png" class="img"></a>
-    </div> 
 
 
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+        <div class="buttons">
+            <button onclick="addToDisplay('(')" class="otro">(</button>
+            <button onclick="addToDisplay(')')" class="otro">)</button>
+            <button onclick="calculatePercentage()" class="otro">%</button>
+            <button onclick="calculateSquareRoot()" class="otro">√</button>
+            <button onclick="addToDisplay('**')" class="otro">^</button>
+            <button onclick="clearDisplay()" class="otro">C</button>
+            <button onclick="deleteLast()" class="otro">⌫</button>
+            <button onclick="addToDisplay('/')" class="otro">÷</button>            
+            <button onclick="addToDisplay('7')" class="otro">7</button>
+            <button onclick="addToDisplay('8')" class="otro">8</button>
+            <button onclick="addToDisplay('9')" class="otro">9</button>
+            <button onclick="addToDisplay('*')" class="otro">x</button>
+            <button onclick="addToDisplay('4')" class="otro">4</button>
+            <button onclick="addToDisplay('5')" class="otro">5</button>
+            <button onclick="addToDisplay('6')" class="otro">6</button>
+            <button onclick="addToDisplay('+')" class="otro">+</button>
+            <button onclick="addToDisplay('1')" class="otro">1</button>
+            <button onclick="addToDisplay('2')" class="otro">2</button>
+            <button onclick="addToDisplay('3')" class="otro">3</button>
+            <button onclick="addToDisplay('-')" class="otro">-</button>
+            <button onclick="addToDisplay('-')" class="otro">+/-</button>
+            <button onclick="addToDisplay('0')" class="otro">0</button>
+            <button onclick="addToDisplay('.')" class="otro">.</button>
+            <button onclick="calculate()" class="resul">=</button>
+
+ 
+        
+        </div>
+    </div>
 </body>
 </html>
