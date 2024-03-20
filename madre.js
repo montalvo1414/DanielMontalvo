@@ -1,36 +1,73 @@
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById('myForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevenir el envío del formulario para este ejemplo
-
-        var name = document.getElementById('name').value;
-        var images = document.getElementById('images').files;
-
-        if (name && images.length > 0) {
-            // Mostrar el nombre ingresado
-            document.getElementById('nombre').innerText = 'Nombre: ' + name;
-
-            // Mostrar las imágenes
-            for (var i = 0; i < images.length; i++) {
-                var reader = new FileReader();
-                reader.onload = (function(image, index) {
-                    return function(e) {
-                        var imgElement = document.createElement('img');
-                        imgElement.src = e.target.result;
-                        imgElement.alt = "Imagen cargada";
-                        var imageOutputId = 'imagen' + (index + 1); // Obtener el ID correspondiente
-                        var imageOutput = document.getElementById(imageOutputId); // Obtener el elemento img correspondiente
-                        imageOutput.src = e.target.result; // Mostrar la imagen cargada
-                    };
-                })(images[i], i);
-                reader.readAsDataURL(images[i]);
+    // Mostrar las imágenes almacenadas al cargar la página
+    for (var i = 1; i <= localStorage.length / 2; i++) {
+        var imagenData = localStorage.getItem("imagen" + i);
+        if (imagenData) {
+            var imagenID = "imagen" + i;
+            var imagen = document.getElementById(imagenID);
+            if (imagen) {
+                imagen.src = imagenData;
             }
-
-            // Ocultar el formulario después de enviarlo
-            document.getElementById('myForm').reset(); // Limpiar el formulario antes de ocultarlo
-            document.getElementById('datos').style.display = 'none';
-            document.getElementById('final').style.display = 'block';
-        } else {
-            alert('Por favor, complete todos los campos.');
         }
+    }
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var nombre = document.getElementById("name").value;
+        var archivos = document.getElementById("images").files;
+    
+        if (archivos.length > 0 && nombre.trim() !== "") {
+            for (var i = 0; i < archivos.length; i++) {
+                var reader = new FileReader();
+                reader.onload = (function(nombre, index) {
+                    return function(e) {
+                        var imagenData = e.target.result;
+                        // Almacenar en el localStorage
+                        localStorage.setItem("nombre" + index, nombre);
+                        localStorage.setItem("imagen" + index, imagenData);
+                        // Mostrar la imagen
+                        var imagenID = "imagen" + index;
+                        var imagen = document.getElementById(imagenID);
+                        if (imagen) {
+                            imagen.src = imagenData;
+                        }
+                    };
+                })(nombre, i + 1); // El índice empieza en 1
+                reader.readAsDataURL(archivos[i]);
+            }
+            // Mostrar el nombre
+            document.getElementById("nombre").textContent = "Nombre: " + nombre;
+        } else {
+            alert("Por favor, ingresa un nombre y selecciona al menos una imagen.");
+        }
+    });
+
+    document.getElementById("compartir").addEventListener("click", function() {
+        var url = window.location.href.split('?')[0]; // Obtener la URL actual sin los parámetros de la consulta
+        var datosCompartir = "?";
+        for (var i = 1; i <= localStorage.length / 2; i++) {
+            var nombre = localStorage.getItem("nombre" + i);
+            var imagenData = localStorage.getItem("imagen" + i);
+            datosCompartir += "nombre" + i + "=" + encodeURIComponent(nombre) + "&imagen" + i + "=" + encodeURIComponent(imagenData) + "&";
+        }
+        var enlaceCompartir = url + datosCompartir;
+        
+        // Copiar el enlace al portapapeles
+        navigator.clipboard.writeText(enlaceCompartir).then(function() {
+            alert("Enlace copiado al portapapeles: " + enlaceCompartir);
+        }, function(err) {
+            console.error('Error al copiar el enlace: ', err);
+        });
+    });
+    
+
+    document.getElementById("resetear").addEventListener("click", function() {
+        localStorage.clear(); // Limpiar el almacenamiento local
+        document.getElementById("myForm").reset(); // Resetear el formulario
+        document.getElementById("nombre").textContent = ""; // Limpiar el nombre mostrado
+        // Limpiar las imágenes mostradas
+        var imagenes = document.querySelectorAll(".imageOutput");
+        imagenes.forEach(function(imagen) {
+            imagen.src = "";
+        });
     });
 });
