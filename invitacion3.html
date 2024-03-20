@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="img/logo.png">
+    <title>Invitacion Madre</title>
+    <link rel="icon" href="img/logo.png" type="icon">
+    <link rel="stylesheet" href="invitacion3css.css">
+</head>
+<body>
+    <h2>Cargar una imagen:</h2>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" id="fileInput" accept="image/*" required>
+      <button type="button" onclick="uploadImage()">Enviar</button>
+    </form>
+      
+      <script>
+        function uploadImage() {
+          const fileInput = document.getElementById('fileInput');
+          const file = fileInput.files[0];
+          
+          if (file) {
+            const reader = new FileReader();
+            
+            reader.onload = function(event) {
+              const imageData = event.target.result;
+              sessionStorage.setItem('imageData', imageData);
+              window.location.href = 'invitacion4.html';
+            };
+            
+            reader.readAsDataURL(file);
+          } else {
+            alert('Por favor, seleccione una imagen.');
+          }
+        }
+        </script>    
+</body>
+</html>

@@ -12,6 +12,8 @@
     background: white;
 }
 .contenido {
+    max-width: 70%;
+    margin: auto;
     text-align: center;
     background: #fdfdfd;
     border-radius: 10px;

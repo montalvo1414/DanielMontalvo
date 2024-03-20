@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Ocultar el formulario después de enviarlo
             document.getElementById('myForm').reset(); // Limpiar el formulario antes de ocultarlo
             document.getElementById('datos').style.display = 'none';
+            document.getElementById('final').style.display = 'block';
         } else {
             alert('Por favor, complete todos los campos.');
         }

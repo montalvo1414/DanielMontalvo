@@ -1,15 +1,15 @@
 
 /*MODO OSCURO*/
+
 .dark {
     background-color: black;
 }
-.dark p {
-    color: white ;
-}
+
 .dark .contenido .secion {
     border: 1px solid rgb(255, 255, 255);
 
 }
+
 /*--------------*/
 /*CONTENIDO*/
 .contenido {

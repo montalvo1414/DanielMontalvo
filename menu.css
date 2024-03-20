@@ -21,6 +21,10 @@
     color: white;
     
 }
+.dark .men:hover {
+    color: white;
+    box-shadow: 0 0 20px 5px rgb(255, 0, 0);
+}
 .dark .label {
     color: white;
     transition: color 0.5s ease;
@@ -107,7 +111,7 @@
 .ImgPerfil img {
     width: 100px;
     height: 100px;
-    object-fit: cover;
+    object-fit: contain;
 
 }
 #cerrarCuenta {
@@ -152,10 +156,11 @@ p {
 }
 
 .men:hover {
-    background-color: rgb(109, 109, 109);
-    color: white;
-
+    color: rgb(0, 0, 0);
+    box-shadow: 0 0 20px 5px rgb(0, 0, 0);
+    border-radius: 10px;
 }
+
 .mostrar {
     margin: 2%;
     z-index: 2;
