@@ -171,7 +171,8 @@ p {
 /*tamaño celular*/
 
 @media screen and (max-width:500px ) {
- /*Buscador*/
+
+    /*Buscador*/
 
 .menu {
     margin: 10px;
