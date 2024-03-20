@@ -36,6 +36,8 @@ document.addEventListener("DOMContentLoaded", function() {
             }
             // Mostrar el nombre
             document.getElementById("nombre").textContent = "Nombre: " + nombre;
+            document.getElementById('datos').style.display = 'none';
+            document.getElementById('final').style.display = 'block';
         } else {
             alert("Por favor, ingresa un nombre y selecciona al menos una imagen.");
         }
@@ -69,5 +71,9 @@ document.addEventListener("DOMContentLoaded", function() {
         imagenes.forEach(function(imagen) {
             imagen.src = "";
         });
+        document.getElementById('datos').style.display = 'block';
+        document.getElementById('final').style.display = 'none';
     });
+
+
 });
