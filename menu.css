@@ -171,7 +171,9 @@ p {
 /*tamaño celular*/
 
 @media screen and (max-width:500px ) {
-
+.dark .men:hover {
+box-shadow: none;
+}
     /*Buscador*/
 
 .menu {
