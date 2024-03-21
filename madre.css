@@ -1,5 +1,6 @@
 body {
-    background-color: black;    
+    background-color: black;
+
 }
 #datos {
     box-shadow: 0 0 20px 5px white;
@@ -21,5 +22,27 @@ p {
 img {
     width: 200px;
     height: 200px;
+    border: 3px solid white;
+}
+#final {
+    margin: 45px auto;
+    max-width: 88%;
+    max-height: 90%;
+
+}
+#fina {
+    max-width: 100%;
+    margin: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 3px solid white;
+    text-align: center;
+
+}
+
+.p {
+    max-width: 100%;
+    width: 30%;
+    height: 500px;
     border: 3px solid white;
 }

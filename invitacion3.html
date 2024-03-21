@@ -3,37 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="img/logo.png">
-    <title>Invitacion Madre</title>
-    <link rel="icon" href="img/logo.png" type="icon">
-    <link rel="stylesheet" href="invitacion3css.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="madre.css">
+    <script src="madre.js"></script>
 </head>
 <body>
-    <h2>Cargar una imagen:</h2>
-    <form id="uploadForm" enctype="multipart/form-data">
-      <input type="file" id="fileInput" accept="image/*" required>
-      <button type="button" onclick="uploadImage()">Enviar</button>
+
+    <div id="datos">
+        <form id="myForm">
+        <p>por favor ingresar solo 7 imagenes</p>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="images">Imágenes:</label>
+        <input type="file" id="images" name="images" accept="image/*" multiple required style="display: none;"><br><br>
+
+        <button type="submit">Crear +</button>
     </form>
-      
-      <script>
-        function uploadImage() {
-          const fileInput = document.getElementById('fileInput');
-          const file = fileInput.files[0];
-          
-          if (file) {
-            const reader = new FileReader();
-            
-            reader.onload = function(event) {
-              const imageData = event.target.result;
-              sessionStorage.setItem('imageData', imageData);
-              window.location.href = 'invitacion4.html';
-            };
-            
-            reader.readAsDataURL(file);
-          } else {
-            alert('Por favor, seleccione una imagen.');
-          }
-        }
-        </script>    
+    </div>
+
+    <div id="final" class="da">        
+        <div class="m">
+            <p>te doy las gracias ☺️ por qué siempre estuviste ahí cuando lo necesite y gracias a ti estoy aquí y no siempre soy lo mejor pero siempre trato de mejorar </p>
+            <img id="imagen1" class="imageOutput">
+        </div>        
+        <div class="m">
+            <p>te doy las gracias ☺️ por qué siempre estuviste ahí cuando lo necesite y gracias a ti estoy aquí y no siempre soy lo mejor pero siempre trato de mejorar </p>
+            <img id="imagen2" class="imageOutput">
+        </div>        
+        <div class="m">
+            <p>te doy las gracias ☺️ por qué siempre estuviste ahí cuando lo necesite y gracias a ti estoy aquí y no siempre soy lo mejor pero siempre trato de mejorar </p>
+            <img id="imagen3" class="imageOutput">
+        </div>       
+        <div class="m">
+            <p>te doy las gracias ☺️ por qué siempre estuviste ahí cuando lo necesite y gracias a ti estoy aquí y no siempre soy lo mejor pero siempre trato de mejorar </p>
+            <img id="imagen4" class="imageOutput">
+        </div>        
+        <div class="m">
+            <p>te doy las gracias ☺️ por qué siempre estuviste ahí cuando lo necesite y gracias a ti estoy aquí y no siempre soy lo mejor pero siempre trato de mejorar </p>
+            <img id="imagen5" class="imageOutput">
+        </div>        
+        <div class="m">
+            <p>te doy las gracias ☺️ por qué siempre estuviste ahí cuando lo necesite y gracias a ti estoy aquí y no siempre soy lo mejor pero siempre trato de mejorar </p>
+            <img id="imagen6" class="imageOutput">
+        </div>        
+
+    </div>
+
+
+
 </body>
 </html>

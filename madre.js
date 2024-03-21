@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
             var imagen = document.getElementById(imagenID);
             if (imagen) {
                 imagen.src = imagenData;
+                document.getElementById('datos').style.display = 'none';
+                document.getElementById('final').style.display = 'block';
             }
         }
     }
@@ -43,25 +45,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    document.getElementById("compartir").addEventListener("click", function() {
-        var url = window.location.href.split('?')[0]; // Obtener la URL actual sin los parámetros de la consulta
-        var datosCompartir = "?";
-        for (var i = 1; i <= localStorage.length / 2; i++) {
-            var nombre = localStorage.getItem("nombre" + i);
-            var imagenData = localStorage.getItem("imagen" + i);
-            datosCompartir += "nombre" + i + "=" + encodeURIComponent(nombre) + "&imagen" + i + "=" + encodeURIComponent(imagenData) + "&";
-        }
-        var enlaceCompartir = url + datosCompartir;
-        
-        // Copiar el enlace al portapapeles
-        navigator.clipboard.writeText(enlaceCompartir).then(function() {
-            alert("Enlace copiado al portapapeles: " + enlaceCompartir);
-        }, function(err) {
-            console.error('Error al copiar el enlace: ', err);
-        });
-    });
-    
-
     document.getElementById("resetear").addEventListener("click", function() {
         localStorage.clear(); // Limpiar el almacenamiento local
         document.getElementById("myForm").reset(); // Resetear el formulario
@@ -74,6 +57,4 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('datos').style.display = 'block';
         document.getElementById('final').style.display = 'none';
     });
-
-
 });
