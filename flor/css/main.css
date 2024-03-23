@@ -23,12 +23,6 @@
   .mensaje {
     top: 150px;
     font-size: 30px;
-    font-family: serif;
-  }
-}
-@media screen and (max-width: 1200px){
-  .mensaje {
-    font-family: cursive;
   }
 }
 html, body {
