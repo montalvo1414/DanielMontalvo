@@ -25,6 +25,11 @@
     font-size: 30px;
   }
 }
+@media screen and (max-width: 1200px){
+  .mensaje {
+    font-family: cursive;
+  }
+}
 body {
   display: flex;
   align-items: flex-end;
