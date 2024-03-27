@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 imagen.src = imagenData;
                 document.getElementById('datos').style.display = 'none';
                 document.getElementById('final').style.display = 'block';
+
+                setTimeout(cambiarP, 42000);
             }
         }
     }
@@ -40,6 +42,9 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("nombre").textContent = "Nombre: " + nombre;
             document.getElementById('datos').style.display = 'none';
             document.getElementById('final').style.display = 'block';
+
+            setTimeout(cambiarP, 42000);
+
         } else {
             alert("Por favor, ingresa un nombre y selecciona al menos una imagen.");
         }
@@ -57,4 +62,19 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('datos').style.display = 'block';
         document.getElementById('final').style.display = 'none';
     });
+
+    function cambiarP() {
+        var divs = document.querySelectorAll(".p");
+        divs.forEach(function(div) {
+          var computedStyle = window.getComputedStyle(div);
+          if (computedStyle.getPropertyValue("position") === "fixed") {
+            div.style.position = "relative";
+            div.style.left = "0%";
+            div.style.height = "400px";
+            div.style.boxShadow = "none";
+          }
+        });
+      }
+      
+      
 });
