@@ -1,56 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="madre.css">
-    <script src="madre.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sube Imagenes</title>
+<link rel="icon" href="img/logo.png" type="icon">
+<link rel="stylesheet" href="invitacion3.css">
 </head>
 <body>
-
-    <div id="datos">
-        <form id="myForm">
-        <p>por favor ingresar solo 7 imagenes</p>
-        <label for="name">Nombre:</label>
-        <input type="text" id="name" name="name" required><br><br>
-
-        <label for="images">Imágenes:</label>
-        <input type="file" id="images" name="images" accept="image/*" multiple required style="display: none;"><br><br>
-
-        <button type="submit">Crear +</button>
+    <form id="datos">
+        <label for="images"><img src="img/subeimg.png" id="sube"></label>
+        <input type="file" id="images" name="images" accept="image/*" multiple style="display: none;" required>
+        <label for="enviar"><img src="img/enviar.png" id="envia"></label>
+        <input type="submit" id="enviar" name="enviar" style="display: none;">
     </form>
+
+    <div id="conteniner">
+        <div id="img1"><img id="imagen1" class="imagen"></div>
+        <div id="img2"><img id="imagen2" class="imagen"></div>
+        <div id="img3"><img id="imagen3" class="imagen"></div>
+        <div id="img4"><img id="imagen4" class="imagen"></div>
+        <div id="img5"><img id="imagen5" class="imagen"></div>
+        <div id="img6"><img id="imagen6" class="imagen"></div>
+    </div>
+    <div class="mensajes">
+        <div id="mensaje1"><p id="mensaje">Mensaje 1</p></div>
+        <div id="mensaje2"><p id="mensaje">Mensaje 2</p></div>
+        <div id="mensaje3"><p id="mensaje">Mensaje 3</p></div>
+        <div id="mensaje4"><p id="mensaje">Mensaje 4</p></div>
+        <div id="mensaje5"><p id="mensaje">Mensaje 5</p></div>
+        <div id="mensaje6"><p id="mensaje">Mensaje 6</p></div>
+        <button id="cerrar">X</button>
     </div>
 
-    <div id="final" class="da">        
-        <div class="m">
-            <p>te doy las gracias ☺️ por qué siempre estuviste ahí cuando lo necesite y gracias a ti estoy aquí y no siempre soy lo mejor pero siempre trato de mejorar </p>
-            <img id="imagen1" class="imageOutput">
-        </div>        
-        <div class="m">
-            <p>te doy las gracias ☺️ por qué siempre estuviste ahí cuando lo necesite y gracias a ti estoy aquí y no siempre soy lo mejor pero siempre trato de mejorar </p>
-            <img id="imagen2" class="imageOutput">
-        </div>        
-        <div class="m">
-            <p>te doy las gracias ☺️ por qué siempre estuviste ahí cuando lo necesite y gracias a ti estoy aquí y no siempre soy lo mejor pero siempre trato de mejorar </p>
-            <img id="imagen3" class="imageOutput">
-        </div>       
-        <div class="m">
-            <p>te doy las gracias ☺️ por qué siempre estuviste ahí cuando lo necesite y gracias a ti estoy aquí y no siempre soy lo mejor pero siempre trato de mejorar </p>
-            <img id="imagen4" class="imageOutput">
-        </div>        
-        <div class="m">
-            <p>te doy las gracias ☺️ por qué siempre estuviste ahí cuando lo necesite y gracias a ti estoy aquí y no siempre soy lo mejor pero siempre trato de mejorar </p>
-            <img id="imagen5" class="imageOutput">
-        </div>        
-        <div class="m">
-            <p>te doy las gracias ☺️ por qué siempre estuviste ahí cuando lo necesite y gracias a ti estoy aquí y no siempre soy lo mejor pero siempre trato de mejorar </p>
-            <img id="imagen6" class="imageOutput">
-        </div>        
-
+    <div id="resetea">
+        <button id="resetear">Reseteo</button>
     </div>
-
-
-
+    <script src="invitacion3.js"></script>
 </body>
 </html>
