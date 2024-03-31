@@ -16,30 +16,30 @@ function handleFormSubmit(event) {
   document.getElementById('conteniner').style.display = 'block'
   document.getElementById('resetea').style.display = 'block';
 }
-window.addEventListener('load', function() {
-    let hayImagenes = false; // Variable para indicar si hay imágenes almacenadas
-    
-    // Verificar si hay imágenes almacenadas
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (key.startsWith('imagen')) {
-        const imgElement = document.getElementById(key);
-        imgElement.src = localStorage.getItem(key);
-        hayImagenes = true; // Hay imágenes almacenadas
-      }
-    }
+document.addEventListener('DOMContentLoaded', function() {
+  let hayImagenes = false; // Variable para indicar si hay imágenes almacenadas
   
-    if (hayImagenes) {
-      document.getElementById('datos').style.display = 'none';
-      document.getElementById('conteniner').style.display = 'block';
-      document.getElementById('resetea').style.display = 'block';
-
-    } else {
-      document.getElementById('datos').style.display = 'block';
-      document.getElementById('conteniner').style.display = 'none';
-      document.getElementById('resetea').style.display = 'none';
+  // Verificar si hay imágenes almacenadas
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key.startsWith('imagen')) {
+      const imgElement = document.getElementById(key);
+      imgElement.src = localStorage.getItem(key);
+      hayImagenes = true; // Hay imágenes almacenadas
     }
-  });
+  }
+
+  if (hayImagenes) {
+    document.getElementById('datos').style.display = 'none';
+    document.getElementById('conteniner').style.display = 'block';
+    document.getElementById('resetea').style.display = 'block';
+
+  } else {
+    document.getElementById('datos').style.display = 'block';
+    document.getElementById('conteniner').style.display = 'none';
+    document.getElementById('resetea').style.display = 'none';
+  }
+});
   
   document.getElementById("resetear").addEventListener("click", function() {
     localStorage.clear();
