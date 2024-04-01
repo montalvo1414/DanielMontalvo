@@ -1,21 +1,3 @@
-document.getElementById('datos').addEventListener('submit', handleFormSubmit);
-function handleFormSubmit(event) {
-  event.preventDefault();
-  
-  const formData = new FormData(event.target);
-  const images = formData.getAll('images');
-  
-  images.forEach((image, index) => {
-    const imgElement = document.getElementById(`imagen${index + 1}`);
-    imgElement.src = URL.createObjectURL(image);
-    
-    // Guardar la URL de la imagen en el almacenamiento local
-    localStorage.setItem(`imagen${index + 1}`, imgElement.src);
-  });
-  document.getElementById('datos').style.display = 'none'
-  document.getElementById('conteniner').style.display = 'block'
-  document.getElementById('resetea').style.display = 'block';
-}
 document.addEventListener('DOMContentLoaded', function() {
   let hayImagenes = false; // Variable para indicar si hay imágenes almacenadas
   
@@ -24,7 +6,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const key = localStorage.key(i);
     if (key.startsWith('imagen')) {
       const imgElement = document.getElementById(key);
-      imgElement.src = localStorage.getItem(key);
+      const imgElements = document.querySelectorAll(`#${key}, .mensajes #${key}`);
+      imgElements.forEach(element => {
+        element.src = localStorage.getItem(key);
+      });
       hayImagenes = true; // Hay imágenes almacenadas
     }
   }
@@ -39,20 +24,59 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('conteniner').style.display = 'none';
     document.getElementById('resetea').style.display = 'none';
   }
+
+
 });
-  
-  document.getElementById("resetear").addEventListener("click", function() {
-    localStorage.clear();
-    document.getElementById('datos').reset();
-    var imagenes = document.querySelectorAll(".imagen");
-    imagenes.forEach(function(imagen) {
-      imagen.src = "";
+
+
+document.getElementById('datos').addEventListener('submit', handleFormSubmit);
+function handleFormSubmit(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const images = formData.getAll('images');
+    
+    images.forEach((image, index) => {
+        const imgElement = document.getElementById(`imagen${index + 1}`);
+        const imgElements = document.querySelectorAll(`.mensajes #imagen${index + 1}`);
+        
+        imgElement.src = URL.createObjectURL(image);
+        imgElements.forEach(element => {
+            element.src = URL.createObjectURL(image);
+        });
+        
+        localStorage.setItem(`imagen${index + 1}`, imgElement.src);
     });
   
-    document.getElementById('datos').style.display = 'block';
-    document.getElementById('conteniner').style.display = 'none';
-    document.getElementById('resetea').style.display = 'none';
+    document.getElementById('datos').style.display = 'none';
+    document.getElementById('conteniner').style.display = 'block';
+    document.getElementById('resetea').style.display = 'block';
+}
+
+
+document.getElementById("resetear").addEventListener("click", function() {
+  localStorage.clear();
+  document.getElementById('datos').reset();
+  
+  // Resetear imágenes en el contenedor principal
+  var imagenesContenedor = document.querySelectorAll("#conteniner .imagen");
+  imagenesContenedor.forEach(function(imagen) {
+    imagen.src = "";
   });
+  
+  // Resetear imágenes en el contenedor de mensajes
+  var imagenesMensajes = document.querySelectorAll(".mensajes .imagen");
+  imagenesMensajes.forEach(function(imagen) {
+    imagen.src = "";
+  });
+
+  document.getElementById('datos').style.display = 'block';
+  document.getElementById('conteniner').style.display = 'none';
+  document.getElementById('resetea').style.display = 'none';
+});
+
+
+
   var imagenes = document.querySelectorAll('#conteniner .imagen');
     var mensajes = document.querySelectorAll('.mensajes > div');
     var cerrarBoton = document.getElementById('cerrar');
@@ -81,3 +105,14 @@ document.addEventListener('DOMContentLoaded', function() {
             };
         }(i));
     }
+
+    var today = new Date();
+    var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear().toString().substr(-2);
+
+    // Seleccionar todos los elementos <p> con id "demo"
+    var demoElements = document.querySelectorAll('p#demo');
+
+    // Iterar sobre cada elemento y establecer la fecha
+    demoElements.forEach(function(element) {
+        element.innerHTML = date;
+    });

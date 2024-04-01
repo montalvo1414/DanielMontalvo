@@ -71,23 +71,38 @@ body {
     width: 40%;
     margin: 200px auto;
     border: 3px solid white;
+    border-radius: 30px;
+    background-color: black;
     text-align: center;
     color: white;
     padding: 3px;
+    filter: drop-shadow(0 0 10px white);
 }
 #sube{
     width: 50px;
     height: auto;
+    margin-left: 20px;
 }
 #envia{
-    width: 30px;
+    margin-left: 20px;
+    width: 35px;
+    padding: 16px;
     height: auto;
 }
 #resetea {
-    width: 40%;
-    margin: auto;
-    border: 3px solid white;
+    width: 100%;
+    margin: 30px auto;
     text-align: center;
+}
+#resetear {
+    background-color: rgb(76, 0, 255);
+    color: white;
+    width: 30%;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bolder;
 }
 @keyframes ventana {
     0%{
@@ -248,24 +263,55 @@ body {
     margin: auto;
     display: none;
 }
-#mensaje1, #mensaje2, #mensaje3, #mensaje4, #mensaje5, #mensaje6 {
+.mensajes div {
     position: absolute;
     top: 100px;
-    border: 3px solid white;
-    width: 50%;
+    background-color: antiquewhite;
+    color: black;
+    width: 40%;
     height: 80%;
     left: 50%;
     transform: translate(-50%);
+    padding: 20px;
 }
 #cerrar {
     position: absolute;
-    right: 0;
+    right: 10px;
+    top: 10px;
+    background-color: transparent;
+    border: 3px solid rgb(117, 0, 212);
+    border-radius: 6px;
+    color: rgb(117, 0, 212);
+    font-weight: bolder;
+    font-size: 20px;
+}
+/*mensajes de las imagenes*/
+#mensaje {
+    font-size: 17px;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-weight: 600;
+}
+#demo {
+    font-size: 15px;
+    font-weight: bolder;
+    margin: auto;
+    text-align: center;
+}
+.mensajes div img {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    bottom: 50px;
+    left: 40px;
+    border-radius: 10px;
+    transform: rotate(-10deg);
+}
+.mensajes div h2 {
+    text-align: center;
 }
 
-#mensaje {
-    overflow: hidden;
-    font-size: 24px;
-  }
+
 
 @media screen and (max-width: 900px){
 
@@ -288,8 +334,6 @@ body {
         color: white;
         padding: 3px;
     }
-
-
 
     @keyframes ventana {
         0%{
@@ -435,5 +479,15 @@ body {
             height: 100%;
         }
     }
+
+/**/
+    .mensajes div {
+        top: 60px;
+        width: 70%;
+    }
+    #mensaje {
+        font-size: 15px;
+    }
+
 }
 
