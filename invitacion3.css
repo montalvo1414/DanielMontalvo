@@ -313,7 +313,7 @@ body {
 
 
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 500px){
 
     #conteniner {
         position: relative;
@@ -484,10 +484,14 @@ body {
     .mensajes div {
         top: 60px;
         width: 70%;
+        height: 70%;
     }
     #mensaje {
-        font-size: 15px;
+        font-size: 10px;
     }
-
+    .mensajes div img {
+        width: 130px;
+        height: 130px;
+    }
 }
 
