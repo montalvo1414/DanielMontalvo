@@ -287,7 +287,7 @@ body {
 }
 /*mensajes de las imagenes*/
 #mensaje {
-    font-size: 18px;
+    font-size: 16px;
     font-family: "Times New Roman", Times, serif;
     font-style: italic;
     font-weight: 600;
@@ -311,8 +311,8 @@ body {
     position: absolute;
     width: 250px;
     height: 250px;
-    bottom: 100px;
-    left: 150px;
+    bottom: 40px;
+    left: 50px;
     border-radius: 10px;
     transform: rotate(-10deg);
 }
