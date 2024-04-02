@@ -287,23 +287,32 @@ body {
 }
 /*mensajes de las imagenes*/
 #mensaje {
-    font-size: 17px;
+    font-size: 18px;
     font-family: "Times New Roman", Times, serif;
     font-style: italic;
     font-weight: 600;
 }
+#att {
+    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    margin-top: 30px;
+    margin-right: 70px;
+    font-weight: 600;
+    text-align: right;
+}
 #demo {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bolder;
     margin: auto;
     text-align: center;
 }
 .mensajes div img {
     position: absolute;
-    width: 180px;
-    height: 180px;
-    bottom: 50px;
-    left: 40px;
+    width: 250px;
+    height: 250px;
+    bottom: 100px;
+    left: 150px;
     border-radius: 10px;
     transform: rotate(-10deg);
 }
