@@ -1,0 +1,92 @@
+/*--------MODO OSCURO----------*/
+.dark {
+  background-color: black;
+  transition: background-color 0.5s ease;
+}
+/*-----------------------------*/
+.fondo {
+  background-color: white;
+}
+.contenido {
+  box-sizing: border-box;
+  margin: auto;
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
+  grid-auto-rows: 150px;
+  gap: 7px;
+  padding: 20px;
+}
+  
+.imagen {
+  width: 100%;
+  height: auto;
+  justify-content: center;
+}
+  
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.imagen:hover {
+    opacity: 50%;
+}
+
+/*----------MODAL--------------*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+  }
+  
+  .modal-content {
+    margin: auto;
+    display: block;
+    text-shadow: #ffffff;
+    width: 80%;
+    height: auto;
+  }
+  
+  .close {
+    color: #fff;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+@media screen and (max-width:500px ) {   
+    .imagen {
+        height: 100px;
+    }
+    .imagen:hover {
+        opacity: none;
+    }
+
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        height: auto;
+        padding: 40% 0%;
+      }
+}

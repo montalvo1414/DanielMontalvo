@@ -1,0 +1,146 @@
+/*fondo*/
+
+.fondo {
+    background: rgb(247, 3, 234);
+    background-image: url(img/Sin\ título-1.png);
+    background-repeat: no-repeat;
+
+
+}
+/* contenido*/
+.contenido {
+    margin: 10% 20%;
+}
+/*texto*/
+
+.tex {
+    text-align: center;
+    color: white;
+    font-size: 20px;
+}
+/*imagen*/
+
+.img {
+    text-align: center;
+    margin: 20px;
+}
+
+/*botones*/
+
+#boton {
+    margin: 50px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.si {
+    color: white ;
+    background: green;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 0px 20px;
+}
+
+#no {
+    color: white;
+    background: red;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: 100px;
+    margin: 0px 20px;
+}
+
+/*fondo*/
+
+.fondo1 {
+    background-image: url(img/fondo1.jpg);
+    background-repeat: no-repeat;
+    background-size: 1360px;
+
+
+}
+/* contenido*/
+.contenido1 {
+    padding: 15% 20%;
+    text-align: center;
+}
+/*texto*/
+
+.text1 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.tex1 {
+    font-size: 40px;
+    font-weight: bolder;
+    
+}
+/*imagen*/
+
+.img1 {
+    text-align: center;
+    margin: 20px;
+}
+
+@media screen and (max-width:500px) {
+    .fondo1 {
+        background-color: rgb(252, 31, 186);
+        background-image: none;
+    }
+    .fondo {
+        background-color: rgb(252, 31, 186);
+        background-image: none;
+    }
+    .contenido {
+        margin: 40% 0px;
+    }
+    .contenido1 {
+        margin: 30% 0px;
+    }
+    img {
+        width: 200px;
+    }
+    .img1 {
+        width: 200px;
+        align-items: center;
+        margin: 0px;
+    }
+
+    .tex {
+        margin: 0px;
+    }
+
+    .si {
+        color: white ;
+        background: green;
+        padding: 10px 20px;
+        text-decoration: none;
+        margin: 0px 20px;
+    }
+    
+    #no {
+        color: white;
+        background: red;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: 100px;
+        margin: 0px 10px;
+    }
+
+    /*texto*/
+
+.text1 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.tex1 {
+    font-size: 10px;
+    font-weight: bolder;
+    
+}
+}

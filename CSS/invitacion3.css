@@ -1,0 +1,506 @@
+body {
+    background-color: rgb(0, 0, 0);
+}
+
+#img1 {
+    position: absolute;
+    border: 3px solid rgb(252, 223, 223);
+    filter: drop-shadow(0 0 3px white);
+    border-radius: 25px;
+    background-color: transparent;
+    animation: ventana 3s forwards;
+}
+#img2 {
+    position: absolute;
+    border: 3px solid rgb(252, 223, 223);
+    filter: drop-shadow(0 0 3px white);
+    border-radius: 25px;
+    background-color: transparent;
+    animation: ventana2 3s forwards;
+}
+#img3 {
+    position: absolute;
+    border: 3px solid rgb(252, 223, 223);
+    filter: drop-shadow(0 0 3px white);
+    border-radius: 25px;
+    background-color: transparent;
+    animation: ventana3 3s forwards;
+
+}
+#img4 {
+    position: absolute;
+    border: 3px solid rgb(252, 223, 223);
+    filter: drop-shadow(0 0 3px white);
+    border-radius: 25px;
+    background-color: transparent;
+    animation: ventana4 3s forwards;
+}
+#img5 {
+    position: absolute;
+    border: 3px solid rgb(252, 223, 223);
+    filter: drop-shadow(0 0 3px white);
+    border-radius: 25px;
+    background-color: transparent;
+    animation: ventana5 3s forwards;
+}
+#img6 {
+    position: absolute;
+    border: 3px solid rgb(252, 223, 223);
+    filter: drop-shadow(0 0 3px white);
+    border-radius: 25px;
+    background-color: transparent;
+    animation: ventana6 3s forwards;
+
+}
+#conteniner img {
+    border-radius: 20px;
+    animation: opacida 3s forwards;
+}
+#conteniner {
+    position: relative;
+    border: 3px solid white;
+    max-width: 100%;
+    min-height: 100%;
+    width: 50%;
+    height: 500px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+#datos {
+    width: 40%;
+    margin: 200px auto;
+    border: 3px solid white;
+    border-radius: 30px;
+    background-color: black;
+    text-align: center;
+    color: white;
+    padding: 3px;
+    filter: drop-shadow(0 0 10px white);
+}
+#sube{
+    width: 50px;
+    height: auto;
+    margin-left: 20px;
+}
+#envia{
+    margin-left: 20px;
+    width: 35px;
+    padding: 16px;
+    height: auto;
+}
+#resetea {
+    width: 100%;
+    margin: 30px auto;
+    text-align: center;
+}
+#resetear {
+    background-color: rgb(76, 0, 255);
+    color: white;
+    width: 30%;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+@keyframes ventana {
+    0%{
+        width: 0;
+        height: 0;
+        left: 15.5%;
+        top: 22.75%;
+    }
+    50%{
+        width: 30%;
+        height: 0px;
+        left: 2.5%;
+        top: 22.75%;
+    }
+    100%{
+        width: 30%;
+        height: 45.5%;
+        left: 2.5%;
+        top: 3%;
+    }
+}
+
+@keyframes ventana2 {
+    0%{
+        width: 0px;
+        height: 0;
+        left: 50%;
+        top: 22.75%;
+    }
+    50%{
+        width: 30%;
+        height: 0px;
+        left: 35%;
+        top: 22.75%;
+    }
+    100%{
+        width: 30%;
+        height: 45.5%;
+        left: 35%;
+        top: 3%;
+    }
+
+}
+
+@keyframes ventana3 {
+    0%{
+        width: 0px;
+        height: 0;
+        left: 82.5%;
+        top: 22.75%;
+    }
+    50%{
+        width: 30%;
+        height: 0px;
+        left: 67.5%;
+        top: 22.75%;
+    }
+    100%{
+        width: 30%;
+        height: 45.5%;
+        left: 67.5%;
+        top: 3%;
+    }
+
+}
+@keyframes ventana4 {
+    0%{
+        width: 0;
+        height: 0;
+        left: 15.5%;
+        top: 73.25%;
+    }
+    50%{
+        width: 30%;
+        height: 0px;
+        left: 2.5%;
+        top: 73.25%;
+    }
+    100%{
+        width: 30%;
+        height: 45.5%;
+        left: 2.5%;
+        top: 51.5%;
+    }
+
+}
+
+@keyframes ventana5 {
+    0%{
+        width: 0px;
+        height: 0;
+        left: 50%;
+        top: 73.25%;
+    }
+    50%{
+        width: 30%;
+        height: 0px;
+        left: 35%;
+        top: 73.25%;
+    }
+    100%{
+        width: 30%;
+        height: 45.5%;
+        left: 35%;
+        top: 51.5%;
+    }
+}
+
+@keyframes ventana6 {
+    0%{
+        width: 0px;
+        height: 0;
+        left: 82.5%;
+        top: 73.25%;
+    }
+    50%{
+        width: 30%;
+        height: 0px;
+        left: 67.5%;
+        top: 73.25%;
+    }
+    100%{
+        width: 30%;
+        height: 45.5%;
+        left: 67.5%;
+        top: 51.5%;
+    }
+}
+
+@keyframes opacida {
+    0%{
+        opacity: 0;
+        width: 0px;
+        height: 0;
+    }
+    50%{
+        opacity: 0;
+        width: 100%;
+        height: 0px;
+    }
+    100%{
+        opacity: 1;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/**/
+
+.mensajes {
+    position: absolute;
+    color: white;
+    background-color: black;
+    width: 100%;
+    left: 0;
+    top: 0px;
+    height: 100%;
+    margin: auto;
+    display: none;
+}
+.mensajes div {
+    position: absolute;
+    top: 100px;
+    background-color: antiquewhite;
+    color: black;
+    width: 40%;
+    height: 80%;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 20px;
+}
+#cerrar {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: transparent;
+    border: 3px solid rgb(117, 0, 212);
+    border-radius: 6px;
+    color: rgb(117, 0, 212);
+    font-weight: bolder;
+    font-size: 20px;
+}
+/*mensajes de las imagenes*/
+#mensaje {
+    font-size: 16px;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-weight: 600;
+}
+#att {
+    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    margin-top: 30px;
+    margin-right: 70px;
+    font-weight: 600;
+    text-align: right;
+}
+#demo {
+    font-size: 18px;
+    font-weight: bolder;
+    margin: auto;
+    text-align: center;
+}
+.mensajes div img {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    bottom: 40px;
+    left: 50px;
+    border-radius: 10px;
+    transform: rotate(-10deg);
+}
+.mensajes div h2 {
+    text-align: center;
+}
+
+
+
+@media screen and (max-width: 500px){
+
+    #conteniner {
+        position: relative;
+        border: 3px solid white;
+        max-width: 100%;
+        min-height: 100%;
+        width: 80%;
+        height: 500px;
+        margin: auto;
+        margin-top: 100px;
+    }
+    
+    #datos {
+        width: 50%;
+        margin: 200px auto;
+        border: 3px solid white;
+        text-align: center;
+        color: white;
+        padding: 3px;
+    }
+
+    @keyframes ventana {
+        0%{
+            width: 0;
+            height: 0;
+            left: 21.25%;
+            top: 17.5%;
+        }
+        50%{
+            width: 42.5%;
+            height: 0px;
+            left: 5%;
+            top: 17.5%;
+        }
+        100%{
+            width: 42.5%;
+            height: 30%;
+            left: 5%;
+            top: 2.5%;
+        }
+    }
+    
+    @keyframes ventana2 {
+        0%{
+            width: 0px;
+            height: 0;
+            left: 73.75%;
+            top: 17.5%;
+        }
+        50%{
+            width: 42.5%;
+            height: 0px;
+            left: 52.5%;
+            top: 17.5%;
+        }
+        100%{
+            width: 42.5%;
+            height: 30%;
+            left: 52.5%;
+            top: 2.5%;
+        }
+    
+    }
+    
+    @keyframes ventana3 {
+        0%{
+            width: 0;
+            height: 0;
+            left: 21.25%;
+            top: 50%;
+        }
+        50%{
+            width: 42.5%;
+            height: 0px;
+            left: 5%;
+            top: 50%;
+        }
+        100%{
+            width: 42.5%;
+            height: 30%;
+            left: 5%;
+            top: 35%;
+        }
+    
+    }
+    @keyframes ventana4 {
+        0%{
+            width: 0px;
+            height: 0;
+            left: 73.75%;
+            top: 50%;
+        }
+        50%{
+            width: 42.5%;
+            height: 0px;
+            left: 52.5%;
+            top: 50%;
+        }
+        100%{
+            width: 42.5%;
+            height: 30%;
+            left: 52.5%;
+            top: 35%;
+        }
+    
+    }
+    
+    @keyframes ventana5 {
+        0%{
+            width: 0;
+            height: 0;
+            left: 21.25%;
+            top: 82.5%;
+        }
+        50%{
+            width: 42.5%;
+            height: 0px;
+            left: 5%;
+            top: 82.5%;
+        }
+        100%{
+            width: 42.5%;
+            height: 30%;
+            left: 5%;
+            top: 67.5%;
+        }
+    }
+    
+    @keyframes ventana6 {
+        0%{
+            width: 0px;
+            height: 0;
+            left: 73.75%;
+            top: 82.5%;
+        }
+        50%{
+            width: 42.5%;
+            height: 0px;
+            left: 52.5%;
+            top: 82.5%;
+        }
+        100%{
+            width: 42.5%;
+            height: 30%;
+            left: 52.5%;
+            top: 67.5%;
+        }
+    }
+    @keyframes opacida {
+        0%{
+            opacity: 0;
+            width: 0px;
+            height: 0;
+        }
+        50%{
+            opacity: 0;
+            width: 100%;
+            height: 0px;
+        }
+        100%{
+            opacity: 1;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+/**/
+    .mensajes div {
+        top: 60px;
+        width: 70%;
+        height: 70%;
+    }
+    #mensaje {
+        font-size: 10px;
+    }
+    .mensajes div img {
+        width: 130px;
+        height: 130px;
+    }
+}
+

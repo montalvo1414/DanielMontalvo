@@ -1,0 +1,332 @@
+body {
+    background-color: rgb(0, 0, 0);
+}
+.carta {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    margin: auto;
+    position: relative;
+}
+
+#triangulo2 {
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 400px;
+    margin: auto;
+    position: absolute;
+    transform: translate(-50%);
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-top: 100px solid rgba(21, 255, 0, 0);
+}
+#arriba {
+    z-index: 3;
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 400px;
+    margin: auto;
+    position: absolute;
+    transform: translate(-50%);
+    border-left: 400px solid transparent; 
+    border-bottom: 300px solid rgb(216, 32, 32); 
+}
+
+#lado {
+    z-index: 3;
+    width: 0;
+    height: 0;
+    left: 50%;
+    left: 50%;
+    top: 400px;
+    margin: auto;
+    position: absolute;
+    transform: translate(-50%);
+    border-right: 400px solid transparent; 
+    border-bottom: 300px solid rgb(255, 56, 56); 
+}
+#hoja {
+    z-index: 9;
+    width: 200px;
+    height: 200px;
+    left: 50%;
+    top: 400px;
+    transform: translate(-50%);
+    background-color: transparent;
+    margin: auto;
+    position: absolute;
+}
+#hoja1 {
+    width: 400px;
+    height: 300px;
+    left: 50%;
+    top: 400px;
+    transform: translate(-50%);
+    background-color: rgb(161, 0, 0);
+    margin: auto;
+    position: absolute;
+}
+#mensaje {
+    z-index: 3;
+    max-width: 100%;
+    min-height: 100%;
+    width: 300px;
+    height: 200px;
+    left: 50%;
+    top: 500px;
+    transform: translate(-50%);
+    margin: auto;
+    text-align: center;
+    position: absolute;
+    background-color: rgb(238, 216, 216);
+}
+@keyframes mensaje {
+    0% {
+        z-index: 3;
+        top: 400px;
+        width: 300px;
+        height: 300px;
+        font-size: 0%;
+    }   
+    40% {
+        z-index: 3;
+        top: 400px;
+        width: 300px;
+        height: 300px;
+        font-size: 0%;
+    }
+    70%,90% {
+        z-index: 3;
+        top: 200px;
+        width: 400px;
+        height: 300px;
+        font-size: 0%;
+    }
+
+    100% {
+        z-index: 10;
+        top: 100px;
+        width: 50%;
+        height: 700px;
+        font-size:100%;
+    }
+}
+@keyframes mensajes {
+    0% {
+        z-index: 6;
+        top: 100px;
+        width: 50%;
+        height: 500px;
+        font-size: 0%;
+    }    
+    70% {
+        z-index: 3;
+        top: 200px;
+        width: 300px;
+        height: 200px;
+        font-size: 0%;
+
+    }
+    100% {
+        z-index: 3;
+
+        top: 450px;
+        width: 300px;
+        height: 200px;
+        display: block;
+        font-size: 0%;
+    }
+}
+
+#men {
+    width: 100%;
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    text-align: justify;
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+}
+#texto {
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-size: 0px;
+    color: rgb(0, 0, 0);
+    padding: 0 50px;
+}
+
+@keyframes texto {
+    0% {
+        font-size: 0%;
+    }    
+    70% {
+
+        font-size: 0%;
+
+    }
+    100% {
+        display: block;
+        font-size: 25px;
+    }
+}
+@keyframes texto1 {
+    0% {
+        font-size: 0%;
+    }    
+    70% {
+
+        font-size: 0%;
+
+    }
+    100% {
+        display: block;
+        font-size: 0px;
+    }
+}.apodo {
+    margin-right: 30px;
+    font-weight: bolder;
+    right: 10px;
+    bottom: 100px;
+    position: absolute;
+}
+#mensaje img {
+    margin-right: 10px;
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    bottom: 50px;
+    left: 20px;
+    position: absolute;
+    border-radius: 30px;
+    transform: rotate(-10deg);
+}
+@keyframes img {
+    0%,90% {
+        opacity: 0;
+    }    
+
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes img1 {
+    0%,90% {
+        opacity: 0;
+    }    
+
+    100% {
+        opacity: 0;
+    }
+}
+#triangulo3 {
+    z-index: 5;
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 400px;
+    margin: auto;
+    position: absolute;
+    transform: translate(-50%);
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-top: 150px solid rgb(122, 2, 2);
+}
+
+@keyframes trian {
+    0% {
+        border-top-width: 150px;
+    }    
+
+    0%,100% {
+        border-top-width: 0px;
+    }
+}
+@keyframes trianl {
+    0%,70% {
+        border-top-width: 0px;
+    }    
+    100% {
+        border-top-width: 150px;
+    }
+}
+#triangulo {
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 300px;
+    margin: auto;
+    position: absolute;
+    transform: translate(-50%);
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 0px solid rgb(133, 2, 2);
+}
+@keyframes triang {
+    0% {
+        border-bottom-width: 0px;
+        top: 400px;
+    }
+    30%,100% {
+        border-bottom-width: 100px;
+        top: 300px;
+    
+    }
+}
+@keyframes triang1 {
+    0%,40% {
+        border-bottom-width: 100px;
+        top: 300px;
+    }
+    90%,100% {
+        border-bottom-width: 0px;
+        top: 400px;
+    
+    }
+}
+
+/* datos*/
+#formulario {
+    left: 50%;
+    top: 750px;
+    margin: auto;
+    display: flex;
+    position: absolute;
+    transform: translate(-50%);
+    background-color: rgb(0, 0, 0);
+    width: 40%;
+    padding: 20px;
+    border-radius: 30px;
+    justify-content: center;
+}
+input{
+    border-radius: 20px;
+    color: black;
+    height: 30px;
+    font-size: 10px;
+    border: none;
+}
+#formulario img {
+    margin-left: 10px;
+}
+#demo {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 800px){
+    @keyframes mensaje {
+        100% {
+            z-index: 4;
+            top: 100px;
+            width: 90%;
+            height: 700px;
+        }
+    }
+}
