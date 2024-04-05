@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>madre</title>
+    <link rel="stylesheet" href="CSS/madre.css">
+
+</head>
+<body>
+
+    <div id="datos">
+        <form id="myForm">
+        <p>por favor ingresar solo 7 imagenes</p>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="images">Imágenes:</label>
+        <input type="file" id="images" name="images" accept="image/*" multiple required style="display: none;"><br><br>
+
+        <button type="submit">Crear +</button>
+    </form>
+    </div>
+    <div id="final">
+        <div id="fina">
+        <div class="menu p">
+            <img id="imagen1" class="imageOutput">
+        </div>
+        <div class="menu2 p">
+            <img id="imagen2" class="imageOutput">
+        </div>    
+        <div class="menu3 p">
+            <img id="imagen3" class="imageOutput">
+        </div>    
+        <div class="menu4 p">
+            <img id="imagen4" class="imageOutput">
+        </div>
+        <div class="menu5 p">
+            <img id="imagen5" class="imageOutput">
+        </div>
+        <div class="menu6 p">
+            <img id="imagen6" class="imageOutput">
+        </div>
+
+        <p id="nombre"></p>            
+        </div>
+
+    </div>
+    <div class="rese">
+            <button id="resetear" class="rese">Resetear</button>
+    </div>
+    <script src="JS/madre.js"></script>
+</body>
+</html>
