@@ -1,0 +1,111 @@
+body {
+    background-color: black;
+    max-width: 100%;
+}
+#playlist {
+    color: #ffffff;
+    width: 100%;
+    height: 85vh;
+    position: relative;
+    max-height: 100%;
+    background-color: rgb(46, 46, 46);
+    padding: 2px;
+}
+
+#playlist li {
+    background-color: black;
+    margin: 5px;
+}
+ul  {
+    list-style-type: none;
+}
+#player {
+    max-width: 100%;
+    bottom: 10px;
+    width: 100%;
+    height: 10vh;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    left: 0;
+}
+#current-track-info {
+    width: 30%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bolder;
+}
+#controls {
+    width: 70%;
+    height: 10vh;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+}
+/**/
+#botones {
+    width: 60%;
+    text-align: center;
+}
+#botones button {
+    border-radius: 50%;
+    border: none;
+    font-size: 15px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+#play-pause-btn {
+    width: 40px;
+    height: 40px;
+}
+#play-pause-btn:active {
+    background-color: rgb(0, 255, 0);
+    color: white;
+}
+#prev-track-btn, #next-track-btn {
+    width: 30px;
+    height: 30px;
+}
+/**/
+
+#progress-bar {
+    width: 90%;
+    height: 5px;
+    border-radius: 10px;
+    background-color: rgb(46, 46, 46);
+    display: flex;
+    align-items: center;
+}
+#progress {
+    max-width: 100%;
+    height: 7px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+#progress:active , #volume:active {
+    max-width: 100%;
+    background-color: rgb(60, 255, 0);
+}
+
+#volume-bar {
+    max-width: 100%;
+    width: 30%;
+    height: 5px;
+    border-radius: 10px;
+    background-color: rgb(46, 46, 46);
+    display: flex;
+    align-items: center;
+}
+#volume {
+    max-width: 100%;
+    height: 7px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
