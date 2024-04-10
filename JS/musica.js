@@ -147,15 +147,9 @@ document.addEventListener('mousemove', updateProgressBar);
 document.addEventListener('mouseup', stopDragging);
 
 // Eventos para dispositivos móviles
-volumeBarContainer.addEventListener('touchstart', () => {
-    isDraggingVolume = true;
-    document.addEventListener('touchmove', updateVolume);
-});
-
-document.addEventListener('touchend', () => {
-    isDraggingVolume = false;
-    document.removeEventListener('touchmove', updateVolume);
-});
+volumeBarContainer.addEventListener('touchstart', startDraggingVolume);
+document.addEventListener('touchmove', updateVolume);
+document.addEventListener('touchend', stopDraggingVolume);
 
 progressBarContainer.addEventListener('touchstart', startDragging);
 document.addEventListener('touchmove', updateProgressBar);
