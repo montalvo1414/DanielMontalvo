@@ -142,9 +142,27 @@ document.addEventListener('mouseup', () => {
     document.removeEventListener('mousemove', updateVolume);
 });
 
-progressBarContainer.addEventListener('mousedown', startDragging);
-document.addEventListener('mousemove', updateProgressBar);
-document.addEventListener('mouseup', stopDragging);
+progressBarContainer.addEventListener('mousedown', onMouseDownProgress);
+document.addEventListener('mousemove', onMouseMoveProgress);
+document.addEventListener('mouseup', onMouseUpProgress);
+
+// Función para iniciar el arrastre del control de progreso con eventos de ratón
+function onMouseDownProgress(event) {
+    isDragging = true;
+    updateProgressBar(event);
+}
+
+// Función para actualizar el arrastre del control de progreso con eventos de ratón
+function onMouseMoveProgress(event) {
+    if (isDragging) {
+        updateProgressBar(event);
+    }
+}
+
+// Función para finalizar el arrastre del control de progreso con eventos de ratón
+function onMouseUpProgress() {
+    isDragging = false;
+}
 
 // Eventos para dispositivos móviles
 volumeBarContainer.addEventListener('touchstart', onTouchStartVolume);
