@@ -98,6 +98,7 @@ function stopDragging() {
 }
 volumeBar.style.width = '100%';
 audioPlayer.volume = 1.0;
+
 function updateVolume(event) {
     const volumeBarWidth = volumeBarContainer.clientWidth;
     const clickPositionX = event.clientX - volumeBarContainer.getBoundingClientRect().left;
@@ -146,20 +147,17 @@ progressBarContainer.addEventListener('mousedown', onMouseDownProgress);
 document.addEventListener('mousemove', onMouseMoveProgress);
 document.addEventListener('mouseup', onMouseUpProgress);
 
-// Función para iniciar el arrastre del control de progreso con eventos de ratón
 function onMouseDownProgress(event) {
     isDragging = true;
     updateProgressBar(event);
 }
 
-// Función para actualizar el arrastre del control de progreso con eventos de ratón
 function onMouseMoveProgress(event) {
     if (isDragging) {
         updateProgressBar(event);
     }
 }
 
-// Función para finalizar el arrastre del control de progreso con eventos de ratón
 function onMouseUpProgress() {
     isDragging = false;
 }
@@ -169,35 +167,28 @@ volumeBarContainer.addEventListener('touchstart', onTouchStartVolume);
 document.addEventListener('touchmove', onTouchMoveVolume);
 document.addEventListener('touchend', onTouchEndVolume);
 
-// Función para iniciar el arrastre de volumen con eventos táctiles
 function onTouchStartVolume(event) {
     isDraggingVolume = true;
-    updateVolume(event.touches[0]); // Actualizar posición inicial
 }
 
-// Función para actualizar el arrastre de volumen con eventos táctiles
 function onTouchMoveVolume(event) {
     if (isDraggingVolume) {
-        updateVolume(event.touches[0]); // Actualizar posición durante el movimiento
+        updateVolume(event.touches[0]); 
     }
 }
 
-// Función para finalizar el arrastre de volumen con eventos táctiles
 function onTouchEndVolume() {
     isDraggingVolume = false;
 }
 
 // Función para actualizar el volumen
 function updateVolume(touch) {
-    // Obtener posición del toque relativa al contenedor de la barra de volumen
     const touchX = touch.clientX - volumeBarContainer.getBoundingClientRect().left;
     const volumeBarWidth = volumeBarContainer.clientWidth;
     let volumePercentage = (touchX / volumeBarWidth) * 100;
 
-    // Asegurar que el volumen no sea menor que cero y no exceda el máximo
     volumePercentage = Math.max(0, Math.min(100, volumePercentage));
 
-    // Actualizar la barra de volumen y el volumen del reproductor de audio
     volumeBar.style.width = `${volumePercentage}%`;
     audioPlayer.volume = volumePercentage / 100;
 }
@@ -206,35 +197,28 @@ progressBarContainer.addEventListener('touchstart', onTouchStartProgress);
 document.addEventListener('touchmove', onTouchMoveProgress);
 document.addEventListener('touchend', onTouchEndProgress);
 
-// Función para iniciar el arrastre del control de progreso con eventos táctiles
 function onTouchStartProgress(event) {
     isDragging = true;
-    updateProgressBar(event.touches[0]); // Actualizar posición inicial
+    updateProgressBar(event.touches[0]); 
 }
 
-// Función para actualizar el arrastre del control de progreso con eventos táctiles
 function onTouchMoveProgress(event) {
     if (isDragging) {
-        updateProgressBar(event.touches[0]); // Actualizar posición durante el movimiento
+        updateProgressBar(event.touches[0]); 
     }
 }
 
-// Función para finalizar el arrastre del control de progreso con eventos táctiles
 function onTouchEndProgress() {
     isDragging = false;
 }
 
-// Función para actualizar el control de progreso
 function updateProgressBar(touch) {
-    // Obtener posición del toque relativa al contenedor del control de progreso
     const touchX = touch.clientX - progressBarContainer.getBoundingClientRect().left;
     const progressBarWidth = progressBarContainer.clientWidth;
     let progressPercentage = (touchX / progressBarWidth) * 100;
 
-    // Asegurar que el progreso no sea menor que cero y no exceda el máximo
     progressPercentage = Math.max(0, Math.min(100, progressPercentage));
 
-    // Actualizar la barra de progreso y el tiempo de reproducción del audio
     progressBar.style.width = `${progressPercentage}%`;
     audioPlayer.currentTime = (progressPercentage / 100) * audioPlayer.duration;
 }
