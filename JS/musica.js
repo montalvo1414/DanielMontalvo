@@ -9,6 +9,10 @@ const progressBar = document.getElementById('progress');
 const progressBarContainer = document.getElementById('progress-bar');
 const volumeBarContainer = document.getElementById('volume-bar');
 const counter = document.getElementById('counter');
+const searchInput = document.getElementById('search-input');
+const trackItems = document.getElementById('track-list').getElementsByTagName('li');
+
+
 let currentTrackIndex = 0;
 let tracks = [
     { name: 'Good 4 u', src: 'audio/good 4 u.mp3'},
@@ -30,7 +34,17 @@ function loadTrack(trackIndex) {
     audioPlayer.src = track.src;
     currentTrackInfo.textContent = track.name;
 }
-
+searchInput.addEventListener('input', function() {
+    const searchTerm = searchInput.value.toLowerCase();
+    Array.from(trackItems).forEach(function(track) {
+        const trackName = track.textContent.toLowerCase();
+        if (trackName.includes(searchTerm)) {
+            track.style.display = 'block';
+        } else {
+            track.style.display = 'none';
+        }
+    });
+});
 function playPause() {
     if (audioPlayer.paused) {
         audioPlayer.play();
@@ -82,16 +96,20 @@ function startDragging(event) {
 function stopDragging() {
     isDragging = false;
 }
-
+volumeBar.style.width = '100%';
+audioPlayer.volume = 1.0;
 function updateVolume(event) {
-    if (isDraggingVolume) {
-        const volumeBarWidth = volumeBarContainer.clientWidth;
-        const clickPositionX = event.clientX - volumeBarContainer.getBoundingClientRect().left;
-        const volumePercentage = (clickPositionX / volumeBarWidth) * 100;
-        volumeBar.style.width = `${volumePercentage}%`;
-        const newVolume = volumePercentage / 100;
-        audioPlayer.volume = newVolume;
-    }
+    const volumeBarWidth = volumeBarContainer.clientWidth;
+    const clickPositionX = event.clientX - volumeBarContainer.getBoundingClientRect().left;
+    let volumePercentage = (clickPositionX / volumeBarWidth) * 100;
+
+    // Asegurar que el volumen no sea menor que cero
+    volumePercentage = Math.max(0, volumePercentage);
+
+    volumeBar.style.width = `${volumePercentage}%`;
+
+    const newVolume = volumePercentage / 100;
+    audioPlayer.volume = newVolume;
 }
 
 function startDraggingVolume(event) {
@@ -114,13 +132,36 @@ audioPlayer.addEventListener('timeupdate', () => {
 
 audioPlayer.addEventListener('ended', handleEndOfTrack);
 
+volumeBarContainer.addEventListener('mousedown', () => {
+    isDraggingVolume = true;
+    document.addEventListener('mousemove', updateVolume);
+});
+
+document.addEventListener('mouseup', () => {
+    isDraggingVolume = false;
+    document.removeEventListener('mousemove', updateVolume);
+});
+
 progressBarContainer.addEventListener('mousedown', startDragging);
 document.addEventListener('mousemove', updateProgressBar);
 document.addEventListener('mouseup', stopDragging);
 
-volumeBarContainer.addEventListener('mousedown', startDraggingVolume);
-document.addEventListener('mousemove', updateVolume);
-document.addEventListener('mouseup', stopDraggingVolume);
+// Eventos para dispositivos móviles
+volumeBarContainer.addEventListener('touchstart', () => {
+    isDraggingVolume = true;
+    document.addEventListener('touchmove', updateVolume);
+});
+
+document.addEventListener('touchend', () => {
+    isDraggingVolume = false;
+    document.removeEventListener('touchmove', updateVolume);
+});
+
+progressBarContainer.addEventListener('touchstart', startDragging);
+document.addEventListener('touchmove', updateProgressBar);
+document.addEventListener('touchend', stopDragging);
 
 trackList.addEventListener('click', playTrackFromList);
 playPauseBtn.addEventListener('click', playPause);
+prevTrackBtn.addEventListener('click', prevTrack);
+nextTrackBtn.addEventListener('click', nextTrack);
