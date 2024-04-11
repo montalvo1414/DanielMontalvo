@@ -39,28 +39,13 @@ let tracks = [
     { name: 'Rolling in the Deep', src: 'audio/Rolling in the Deep.mp3' },
 ];
 
-let isDragging = false;
-let isDraggingVolume = false;
-
+// Funciones básicas
 function loadTrack(trackIndex) {
     const track = tracks[trackIndex];
     audioPlayer.src = track.src;
     currentTrackInfo.textContent = track.name;
+    playPause();
 }
-searchInput.addEventListener('input', function() {
-    const searchTerm = searchInput.value.toLowerCase();
-    Array.from(trackItems).forEach(function(track) {
-        const trackName = track.textContent.toLowerCase();
-        if (trackName.includes(searchTerm)) {
-            track.style.display = 'block';
-        } else {
-            track.style.display = 'none';
-        }
-    });
-});
-
-
-
 
 function playPause() {
     if (audioPlayer.paused) {
@@ -75,167 +60,12 @@ function playPause() {
 function nextTrack() {
     currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
     loadTrack(currentTrackIndex);
-    playPause();
 }
 
 function prevTrack() {
     currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
     loadTrack(currentTrackIndex);
-    playPause();
 }
-
-function playTrackFromList(event) {
-    const clickedElement = event.target;
-    const trackIndex = Array.from(trackList.children).indexOf(clickedElement);
-    if (trackIndex !== -1) {
-        currentTrackIndex = trackIndex;
-        loadTrack(currentTrackIndex);
-        playPause();
-    }
-}
-
-function updateProgressBar(event) {
-    if (isDragging) {
-        const progressBarWidth = progressBarContainer.clientWidth;
-        const clickPositionX = event.clientX - progressBarContainer.getBoundingClientRect().left;
-        const progressPercentage = (clickPositionX / progressBarWidth) * 100;
-        progressBar.style.width = `${progressPercentage}%`;
-        const newTime = (progressPercentage / 100) * audioPlayer.duration;
-        audioPlayer.currentTime = newTime;
-    }
-}
-
-function startDragging(event) {
-    isDragging = true;
-    updateProgressBar(event);
-}
-
-function stopDragging() {
-    isDragging = false;
-}
-volumeBar.style.width = '100%';
-audioPlayer.volume = 1.0;
-
-function updateVolume(event) {
-    const volumeBarWidth = volumeBarContainer.clientWidth;
-    const clickPositionX = event.clientX - volumeBarContainer.getBoundingClientRect().left;
-    let volumePercentage = (clickPositionX / volumeBarWidth) * 100;
-    volumePercentage = Math.max(0, volumePercentage);
-    volumeBar.style.width = `${volumePercentage}%`;
-    const newVolume = volumePercentage / 100;
-    audioPlayer.volume = newVolume;
-}
-
-function startDraggingVolume(event) {
-    isDraggingVolume = true;
-    updateVolume(event);
-}
-
-function stopDraggingVolume() {
-    isDraggingVolume = false;
-}
-
-function handleEndOfTrack() {
-    nextTrack();
-}
-
-audioPlayer.addEventListener('timeupdate', () => {
-    const progressPercentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-    progressBar.style.width = `${progressPercentage}%`;
-});
-
-audioPlayer.addEventListener('ended', handleEndOfTrack);
-
-volumeBarContainer.addEventListener('mousedown', () => {
-    isDraggingVolume = true;
-    document.addEventListener('mousemove', updateVolume);
-});
-
-document.addEventListener('mouseup', () => {
-    isDraggingVolume = false;
-    document.removeEventListener('mousemove', updateVolume);
-});
-
-progressBarContainer.addEventListener('mousedown', onMouseDownProgress);
-document.addEventListener('mousemove', onMouseMoveProgress);
-document.addEventListener('mouseup', onMouseUpProgress);
-
-function onMouseDownProgress(event) {
-    isDragging = true;
-    updateProgressBar(event);
-}
-
-function onMouseMoveProgress(event) {
-    if (isDragging) {
-        updateProgressBar(event);
-    }
-}
-
-function onMouseUpProgress() {
-    isDragging = false;
-}
-
-// Eventos para dispositivos móviles
-volumeBarContainer.addEventListener('touchstart', onTouchStartVolume);
-document.addEventListener('touchmove', onTouchMoveVolume);
-document.addEventListener('touchend', onTouchEndVolume);
-
-function onTouchStartVolume(event) {
-    isDraggingVolume = true;
-}
-
-function onTouchMoveVolume(event) {
-    if (isDraggingVolume) {
-        updateVolume(event.touches[0]); 
-    }
-}
-
-function onTouchEndVolume() {
-    isDraggingVolume = false;
-}
-
-// Función para actualizar el volumen
-function updateVolume(touch) {
-    const touchX = touch.clientX - volumeBarContainer.getBoundingClientRect().left;
-    const volumeBarWidth = volumeBarContainer.clientWidth;
-    let volumePercentage = (touchX / volumeBarWidth) * 100;
-
-    volumePercentage = Math.max(0, Math.min(100, volumePercentage));
-
-    volumeBar.style.width = `${volumePercentage}%`;
-    audioPlayer.volume = volumePercentage / 100;
-}
-
-progressBarContainer.addEventListener('touchstart', onTouchStartProgress);
-document.addEventListener('touchmove', onTouchMoveProgress);
-document.addEventListener('touchend', onTouchEndProgress);
-
-function onTouchStartProgress(event) {
-    isDragging = true;
-    updateProgressBar(event.touches[0]); 
-}
-
-function onTouchMoveProgress(event) {
-    if (isDragging) {
-        updateProgressBar(event.touches[0]); 
-    }
-}
-
-function onTouchEndProgress() {
-    isDragging = false;
-}
-
-function updateProgressBar(touch) {
-    const touchX = touch.clientX - progressBarContainer.getBoundingClientRect().left;
-    const progressBarWidth = progressBarContainer.clientWidth;
-    let progressPercentage = (touchX / progressBarWidth) * 100;
-
-    progressPercentage = Math.max(0, Math.min(100, progressPercentage));
-
-    progressBar.style.width = `${progressPercentage}%`;
-    audioPlayer.currentTime = (progressPercentage / 100) * audioPlayer.duration;
-}
-
 function showPlayer() {
     if (window.innerWidth >= 700) {
         document.getElementById('player').style.display = 'flex';
@@ -245,8 +75,78 @@ function showPlayer() {
 }
 
 audioPlayer.addEventListener('play', showPlayer);
+// Búsqueda de pistas
+searchInput.addEventListener('input', function() {
+    const searchTerm = searchInput.value.toLowerCase();
+    Array.from(trackItems).forEach(function(track) {
+        const trackName = track.textContent.toLowerCase();
+        track.style.display = trackName.includes(searchTerm) ? 'block' : 'none';
+    });
+});
 
-trackList.addEventListener('click', playTrackFromList);
+// Eventos del reproductor
+trackList.addEventListener('click', event => {
+    const trackIndex = Array.from(trackList.children).indexOf(event.target);
+    if (trackIndex !== -1) {
+        currentTrackIndex = trackIndex;
+        loadTrack(currentTrackIndex);
+    }
+});
+
 playPauseBtn.addEventListener('click', playPause);
 prevTrackBtn.addEventListener('click', prevTrack);
 nextTrackBtn.addEventListener('click', nextTrack);
+
+audioPlayer.addEventListener('timeupdate', () => {
+    const progressPercentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+});
+
+audioPlayer.addEventListener('ended', nextTrack);
+
+// Interacción con barras de progreso y volumen
+function setupInteraction(container, updateFunction) {
+    container.addEventListener('mousedown', onStart);
+    container.addEventListener('touchstart', event => onStart(event.touches[0]), { passive: false });
+
+    function onStart(startEvent) {
+        isDragging = true;
+        document.addEventListener('mousemove', onMove);
+        document.addEventListener('touchmove', event => onMove(event.touches[0]), { passive: false });
+        document.addEventListener('mouseup', onEnd);
+        document.addEventListener('touchend', onEnd);
+        updateFunction(startEvent);
+    }
+
+    function onMove(moveEvent) {
+        if (isDragging) {
+            updateFunction(moveEvent);
+        }
+    }
+
+    function onEnd() {
+        isDragging = false;
+        document.removeEventListener('mousemove', onMove);
+        document.removeEventListener('touchmove', event => onMove(event.touches[0]));
+        document.removeEventListener('mouseup', onEnd);
+        document.removeEventListener('touchend', onEnd);
+    }
+}
+
+function updateVolume(event) {
+    const bounds = volumeBarContainer.getBoundingClientRect();
+    const volume = Math.max(0, Math.min(1, (event.clientX - bounds.left) / bounds.width));
+    audioPlayer.volume = volume;
+    volumeBar.style.width = `${volume * 100}%`;
+}
+
+function updateProgressBar(event) {
+    const bounds = progressBarContainer.getBoundingClientRect();
+    const newTime = ((event.clientX - bounds.left) / bounds.width) * audioPlayer.duration;
+    audioPlayer.currentTime = Math.max(0, Math.min(audioPlayer.duration, newTime));
+    progressBar.style.width = `${(audioPlayer.currentTime / audioPlayer.duration) * 100}%`;
+}
+
+// Configuración de interacción
+setupInteraction(volumeBarContainer, updateVolume);
+setupInteraction(progressBarContainer, updateProgressBar);
