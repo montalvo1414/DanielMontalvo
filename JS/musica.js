@@ -33,6 +33,10 @@ let tracks = [
     { name: 'Toxic', src: 'audio/Toxic.mp3' },
     { name: '7 Years', src: 'audio/7 Years.mp3' },
     { name: 'Lean On', src: 'audio/Lean On.mp3' },
+    { name: 'In the Name of Love', src: 'audio/In the Name of Love.mp3' },
+    { name: 'Let Me Down Slowly', src: 'audio/Let Me Down Slowly.mp3' },
+    { name: 'Another Love', src: 'audio/Another Love.mp3' },
+    { name: 'Rolling in the Deep', src: 'audio/Rolling in the Deep.mp3' },
 ];
 
 let isDragging = false;
