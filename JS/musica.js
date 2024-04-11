@@ -232,6 +232,22 @@ function updateProgressBar(touch) {
     audioPlayer.currentTime = (progressPercentage / 100) * audioPlayer.duration;
 }
 
+function showPlayer() {
+    if (window.innerWidth >= 700) {
+        document.getElementById('player').style.display = 'flex';
+    } else {
+        document.getElementById('player').style.display = 'block';
+    }
+}
+
+function hidePlayer() {
+    document.getElementById('player').style.display = 'none';
+}
+
+audioPlayer.addEventListener('play', showPlayer);
+audioPlayer.addEventListener('ended', hidePlayer);
+audioPlayer.addEventListener('pause', hidePlayer);
+
 trackList.addEventListener('click', playTrackFromList);
 playPauseBtn.addEventListener('click', playPause);
 prevTrackBtn.addEventListener('click', prevTrack);
