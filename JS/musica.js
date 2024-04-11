@@ -24,6 +24,11 @@ let tracks = [
     { name: 'Treat You Better', src: 'audio/Treat You Better.mp3' },
     { name: 'Lost On You', src: 'audio/Lost On You.mp3' },
     { name: 'Poker Face', src: 'audio/Poker Face.mp3' },
+    { name: 'NO', src: 'audio/NO.mp3' },
+    { name: 'Kissed A Girl', src: 'audio/Kissed A Girl.mp3' },
+    { name: 'Those Eyes', src: 'audio/Those Eyes.mp3' },
+    { name: 'Lost On You', src: 'audio/Lost On You.mp3' },
+    { name: 'Dandelions', src: 'audio/Dandelions.mp3' },
 ];
 
 let isDragging = false;
@@ -45,6 +50,10 @@ searchInput.addEventListener('input', function() {
         }
     });
 });
+
+
+
+
 function playPause() {
     if (audioPlayer.paused) {
         audioPlayer.play();
