@@ -75,7 +75,6 @@ function showPlayer() {
 }
 
 audioPlayer.addEventListener('play', showPlayer);
-// Búsqueda de pistas
 searchInput.addEventListener('input', function() {
     const searchTerm = searchInput.value.toLowerCase();
     Array.from(trackItems).forEach(function(track) {
@@ -84,7 +83,6 @@ searchInput.addEventListener('input', function() {
     });
 });
 
-// Eventos del reproductor
 trackList.addEventListener('click', event => {
     const trackIndex = Array.from(trackList.children).indexOf(event.target);
     if (trackIndex !== -1) {
@@ -101,10 +99,10 @@ audioPlayer.addEventListener('timeupdate', () => {
     const progressPercentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
     progressBar.style.width = `${progressPercentage}%`;
 });
-
+volumeBar.style.width = '100%';
+audioPlayer.volume = 1.0;
 audioPlayer.addEventListener('ended', nextTrack);
 
-// Interacción con barras de progreso y volumen
 function setupInteraction(container, updateFunction) {
     container.addEventListener('mousedown', onStart);
     container.addEventListener('touchstart', event => onStart(event.touches[0]), { passive: false });
@@ -147,6 +145,5 @@ function updateProgressBar(event) {
     progressBar.style.width = `${(audioPlayer.currentTime / audioPlayer.duration) * 100}%`;
 }
 
-// Configuración de interacción
 setupInteraction(volumeBarContainer, updateVolume);
 setupInteraction(progressBarContainer, updateProgressBar);
