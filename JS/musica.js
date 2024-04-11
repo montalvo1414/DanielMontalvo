@@ -146,38 +146,23 @@ audioPlayer.addEventListener('timeupdate', () => {
 
 audioPlayer.addEventListener('ended', handleEndOfTrack);
 
-function onMouseDownVolume(event) {
+volumeBarContainer.addEventListener('mousedown', () => {
     isDraggingVolume = true;
-    updateVolume(event);
-    document.addEventListener('mousemove', onMouseMoveVolume);
-    document.addEventListener('touchmove', onMouseMoveVolume);
-}
+    document.addEventListener('mousemove', updateVolume);
+});
 
-function onMouseMoveVolume(event) {
-    if (isDraggingVolume) {
-        updateVolume(event);
-    }
-}
-
-function onMouseUpVolume() {
+document.addEventListener('mouseup', () => {
     isDraggingVolume = false;
-    document.removeEventListener('mousemove', onMouseMoveVolume);
-    document.removeEventListener('touchmove', onMouseMoveVolume);
-}
+    document.removeEventListener('mousemove', updateVolume);
+});
 
-// Agrega el manejo de eventos para la barra de volumen
-volumeBarContainer.addEventListener('mousedown', onMouseDownVolume);
-volumeBarContainer.addEventListener('touchstart', onMouseDownVolume);
+progressBarContainer.addEventListener('mousedown', onMouseDownProgress);
+document.addEventListener('mousemove', onMouseMoveProgress);
+document.addEventListener('mouseup', onMouseUpProgress);
 
-document.addEventListener('mouseup', onMouseUpVolume);
-document.addEventListener('touchend', onMouseUpVolume);
-
-// Funciones para el manejo de la barra de progreso
 function onMouseDownProgress(event) {
     isDragging = true;
     updateProgressBar(event);
-    document.addEventListener('mousemove', onMouseMoveProgress);
-    document.addEventListener('touchmove', onMouseMoveProgress);
 }
 
 function onMouseMoveProgress(event) {
@@ -188,16 +173,68 @@ function onMouseMoveProgress(event) {
 
 function onMouseUpProgress() {
     isDragging = false;
-    document.removeEventListener('mousemove', onMouseMoveProgress);
-    document.removeEventListener('touchmove', onMouseMoveProgress);
 }
 
-// Agrega el manejo de eventos para la barra de progreso
-progressBarContainer.addEventListener('mousedown', onMouseDownProgress);
-progressBarContainer.addEventListener('touchstart', onMouseDownProgress);
+// Eventos para dispositivos móviles
+volumeBarContainer.addEventListener('touchstart', onTouchStartVolume);
+document.addEventListener('touchmove', onTouchMoveVolume);
+document.addEventListener('touchend', onTouchEndVolume);
 
-document.addEventListener('mouseup', onMouseUpProgress);
-document.addEventListener('touchend', onMouseUpProgress);
+function onTouchStartVolume(event) {
+    isDraggingVolume = true;
+}
+
+function onTouchMoveVolume(event) {
+    if (isDraggingVolume) {
+        updateVolume(event.touches[0]); 
+    }
+}
+
+function onTouchEndVolume() {
+    isDraggingVolume = false;
+}
+
+// Función para actualizar el volumen
+function updateVolume(touch) {
+    const touchX = touch.clientX - volumeBarContainer.getBoundingClientRect().left;
+    const volumeBarWidth = volumeBarContainer.clientWidth;
+    let volumePercentage = (touchX / volumeBarWidth) * 100;
+
+    volumePercentage = Math.max(0, Math.min(100, volumePercentage));
+
+    volumeBar.style.width = `${volumePercentage}%`;
+    audioPlayer.volume = volumePercentage / 100;
+}
+
+progressBarContainer.addEventListener('touchstart', onTouchStartProgress);
+document.addEventListener('touchmove', onTouchMoveProgress);
+document.addEventListener('touchend', onTouchEndProgress);
+
+function onTouchStartProgress(event) {
+    isDragging = true;
+    updateProgressBar(event.touches[0]); 
+}
+
+function onTouchMoveProgress(event) {
+    if (isDragging) {
+        updateProgressBar(event.touches[0]); 
+    }
+}
+
+function onTouchEndProgress() {
+    isDragging = false;
+}
+
+function updateProgressBar(touch) {
+    const touchX = touch.clientX - progressBarContainer.getBoundingClientRect().left;
+    const progressBarWidth = progressBarContainer.clientWidth;
+    let progressPercentage = (touchX / progressBarWidth) * 100;
+
+    progressPercentage = Math.max(0, Math.min(100, progressPercentage));
+
+    progressBar.style.width = `${progressPercentage}%`;
+    audioPlayer.currentTime = (progressPercentage / 100) * audioPlayer.duration;
+}
 
 function showPlayer() {
     if (window.innerWidth >= 700) {
@@ -207,8 +244,13 @@ function showPlayer() {
     }
 }
 
+function hidePlayer() {
+    document.getElementById('player').style.display = 'none';
+}
 
 audioPlayer.addEventListener('play', showPlayer);
+audioPlayer.addEventListener('ended', hidePlayer);
+audioPlayer.addEventListener('pause', hidePlayer);
 
 trackList.addEventListener('click', playTrackFromList);
 playPauseBtn.addEventListener('click', playPause);
