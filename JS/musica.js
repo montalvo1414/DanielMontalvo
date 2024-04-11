@@ -244,13 +244,7 @@ function showPlayer() {
     }
 }
 
-function hidePlayer() {
-    document.getElementById('player').style.display = 'none';
-}
-
 audioPlayer.addEventListener('play', showPlayer);
-audioPlayer.addEventListener('ended', hidePlayer);
-audioPlayer.addEventListener('pause', hidePlayer);
 
 trackList.addEventListener('click', playTrackFromList);
 playPauseBtn.addEventListener('click', playPause);
