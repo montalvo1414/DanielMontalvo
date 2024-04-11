@@ -136,7 +136,7 @@ ul  {
 
 @media screen and (max-width: 700px){
     #player {
-        display: block;
+        display: none;
     }
     #controls {
         max-width: 100%;
