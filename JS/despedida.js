@@ -1,4 +1,4 @@
-document.getElementById('sobre').addEventListener('click', function() {
+document.getElementById('sobres').addEventListener('click', function() {
     var mensajeDiv = document.getElementById('carta');
     var imageDiv = document.getElementById('image');
     var textoDiv = document.getElementById('texto');
