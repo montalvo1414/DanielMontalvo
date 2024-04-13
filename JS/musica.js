@@ -50,10 +50,12 @@ function loadTrack(trackIndex) {
 function playPause() {
     if (audioPlayer.paused) {
         audioPlayer.play();
-        playPauseBtn.textContent = '❚❚';
+        playPauseBtn.children[0].src = 'img/pause.png'; 
+        playPauseBtn.children[0].alt = 'Pause'; 
     } else {
         audioPlayer.pause();
-        playPauseBtn.textContent = '►';
+        playPauseBtn.children[0].src = 'img/play.png'; 
+        playPauseBtn.children[0].alt = 'Play'; 
     }
 }
 
