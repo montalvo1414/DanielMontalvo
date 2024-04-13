@@ -2,6 +2,7 @@ body {
     background-color: black;
 }
 /**/
+
 #ariba {
     width: 0;
     height: 0;
@@ -15,6 +16,7 @@ body {
     border-bottom: 150px solid rgb(255, 0, 0);
 }
 #izquierda {
+    max-width: 100%;
     width: 0;
     height: 0;
     left: 50%;
@@ -22,20 +24,24 @@ body {
     margin: auto;
     position: absolute;
     transform: translate(-50%);
-    border-right: 400px solid transparent; 
-    border-bottom: 300px solid rgb(170, 14, 14); 
+    border-right: 44vh solid transparent; 
+    border-bottom: 33vh solid rgb(255, 0, 0); 
 }
 #atras {
+    max-width: 100%;
+    max-height: 100%;
     top: 400px;
-    width: 400px;
-    height: 300px;
+    width: 44vh;
+    height: 33vh;
     left: 50%;
     margin: auto;
     position: absolute;
     transform: translate(-50%);
-    background-color: brown;
+    background-color: rgb(165, 42, 42);
 }
 #derecha {
+    max-width: 100%;
+    max-height: 100%;
     width: 0;
     height: 0;
     left: 50%;
@@ -43,8 +49,8 @@ body {
     margin: auto;
     position: absolute;
     transform: translate(-50%);
-    border-left: 400px solid transparent; 
-    border-bottom: 300px solid rgb(112, 2, 2); 
+    border-left: 44vh solid transparent; 
+    border-bottom: 33vh solid rgb(129, 2, 2); 
 }
 /**/
 #carta {
