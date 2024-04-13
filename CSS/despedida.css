@@ -16,6 +16,7 @@ body {
     border-bottom: 16.5vh solid rgb(255, 0, 0);
 }
 #izquierda {
+    z-index: 5;
     max-width: 100%;
     width: 0;
     height: 0;
@@ -28,6 +29,7 @@ body {
     border-bottom: 33vh solid rgb(126, 2, 2); 
 }
 #atras {
+    z-index: 1;
     max-width: 100%;
     max-height: 100%;
     top: 400px;
@@ -40,6 +42,7 @@ body {
     background-color: rgb(165, 42, 42);
 }
 #derecha {
+    z-index: 4;
     max-width: 100%;
     max-height: 100%;
     width: 0;
@@ -54,15 +57,16 @@ body {
 }
 /**/
 #carta {
+    z-index: 3;
     max-height: 100%;
-    width: 80%;
+    top: 350px;
+    width: 42vh;
     position: relative;
-    height: 80vh;
+    height: 32vh;
     background-color: rgb(247, 210, 162);
     left: 50%;
     transform: translate(-50%);
     animation: carta 10s forwards;
-    display: none;
 }
 @keyframes cartas {
     0% {
