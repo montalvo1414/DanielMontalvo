@@ -115,9 +115,12 @@ body {
 /**/
 #image {
     width: 200px;
-    position: relative;
-    top: 20px;
+    left: 50%;
     margin: auto;
+    position: absolute;
+    margin: auto;
+    transform: translate(-50%)rotate(-10deg);
+    bottom: 100px;
     display: none;
 }
 @keyframes image {
@@ -175,7 +178,11 @@ body {
 }
 /**/
 #texto {
-    font-size: 15px;
+    top: 30px;
+    margin: 10px;
+    font-size: 16px;
+    position: relative;
+    font-weight: bolder;
     display: none;
 }
 @keyframes texto {
