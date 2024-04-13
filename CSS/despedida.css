@@ -11,13 +11,12 @@ body {
     margin: auto;
     position: absolute;
     transform: translate(-50%);
-    border-left: 22vh solid transparent;
-    border-right: 22vh solid transparent;
-    border-bottom: 16.5vh solid rgb(255, 0, 0);
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 150px solid rgb(255, 0, 0);
 }
 #izquierda {
     z-index: 5;
-    max-width: 100%;
     width: 0;
     height: 0;
     left: 50%;
@@ -25,26 +24,22 @@ body {
     margin: auto;
     position: absolute;
     transform: translate(-50%);
-    border-right: 44vh solid transparent; 
-    border-bottom: 33vh solid rgb(126, 2, 2); 
+    border-right: 400px solid transparent; 
+    border-bottom: 300px solid rgb(170, 14, 14); 
 }
 #atras {
     z-index: 1;
-    max-width: 100%;
-    max-height: 100%;
     top: 400px;
-    width: 44vh;
-    height: 32vh;
+    width: 400px;
+    height: 300px;
     left: 50%;
     margin: auto;
     position: absolute;
     transform: translate(-50%);
-    background-color: rgb(165, 42, 42);
+    background-color: brown;
 }
 #derecha {
     z-index: 4;
-    max-width: 100%;
-    max-height: 100%;
     width: 0;
     height: 0;
     left: 50%;
@@ -52,17 +47,17 @@ body {
     margin: auto;
     position: absolute;
     transform: translate(-50%);
-    border-left: 44vh solid transparent; 
-    border-bottom: 33vh solid rgb(161, 0, 0); 
+    border-left: 400px solid transparent; 
+    border-bottom: 300px solid rgb(112, 2, 2); 
 }
 /**/
 #carta {
     z-index: 3;
+    top: 370px;
     max-height: 100%;
-    top: 350px;
-    width: 42vh;
+    width: 380px;
     position: relative;
-    height: 32vh;
+    height: 300px;
     background-color: rgb(247, 210, 162);
     left: 50%;
     transform: translate(-50%);
