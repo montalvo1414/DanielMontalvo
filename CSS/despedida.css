@@ -1,0 +1,140 @@
+body {
+    background-color: black;
+}
+/**/
+#ariba {
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 250px;
+    margin: auto;
+    position: absolute;
+    transform: translate(-50%);
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-bottom: 150px solid rgb(255, 0, 0);
+}
+#izquierda {
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 400px;
+    margin: auto;
+    position: absolute;
+    transform: translate(-50%);
+    border-right: 400px solid transparent; 
+    border-bottom: 300px solid rgb(170, 14, 14); 
+}
+#atras {
+    top: 400px;
+    width: 400px;
+    height: 300px;
+    left: 50%;
+    margin: auto;
+    position: absolute;
+    transform: translate(-50%);
+    background-color: brown;
+}
+#derecha {
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 400px;
+    margin: auto;
+    position: absolute;
+    transform: translate(-50%);
+    border-left: 400px solid transparent; 
+    border-bottom: 300px solid rgb(112, 2, 2); 
+}
+/**/
+#carta {
+    max-height: 100%;
+    width: 80%;
+    position: relative;
+    height: 80vh;
+    background-color: rgb(247, 210, 162);
+    left: 50%;
+    transform: translate(-50%);
+    animation: carta 10s forwards;
+    display: none;
+}
+@keyframes cartas {
+    0% {
+        width: 0%;
+        height: 0vh;
+
+    }
+    50% {
+        width: 80%;
+        height: 80vh;
+    }
+    100% {
+        height: 80vh;
+    }
+}
+/**/
+#image {
+    width: 200px;
+    position: relative;
+    top: 20px;
+    margin: auto;
+    animation:imagen 10s forwards;
+    display: none;
+}
+@keyframes imagens {
+    0% {
+    display: none;
+
+    }
+    50% {
+    display: none;
+    }
+    100% {
+    display: block;
+    }
+}
+#image img{
+    width: 100%;
+}
+.cinta {
+    max-width: 100%;
+    width: 70px;
+    height: 20px;
+    background-color: rgba(206, 206, 206, 0.856);
+    position: absolute;
+}
+#cinta1 {
+    right: -22px;
+    transform: rotate(45deg);
+}
+#cinta2 {
+    right: -22px;
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+#cinta3 {
+    left: -22px;
+    transform: rotate(-45deg);
+}
+#cinta4 {
+    left: -22px;
+    bottom: 0;
+    transform: rotate(45deg);
+}
+/**/
+#texto {
+    animation: texto 10s forwards;
+    display: none;
+}
+@keyframes textos {
+    0% {
+    display: none;
+
+    }
+    50% {
+    display: none;
+    }
+    100% {
+    display: block;
+    }
+}
