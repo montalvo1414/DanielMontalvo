@@ -61,21 +61,56 @@ body {
     background-color: rgb(247, 210, 162);
     left: 50%;
     transform: translate(-50%);
-    animation: carta 10s forwards;
 }
-@keyframes cartas {
+@keyframes carta {
     0% {
-        width: 0%;
-        height: 0vh;
+        z-index: 3;
+        top: 370px;
+        width: 380px;
+        height: 300px;
 
     }
     50% {
-        width: 80%;
-        height: 80vh;
+        z-index: 3;
+        top: 80px;
+        width: 380px;
+        height: 300px;
+    }
+    60% {
+        z-index: 7;
     }
     100% {
+        z-index: 7;
+        top: 80px;
+        width: 60%;
         height: 80vh;
     }
+}
+@keyframes carta1 {
+
+    0% {
+        z-index: 7;
+        top: 80px;
+        width: 60%;
+        height: 80vh;
+    }
+    50% {
+        z-index: 7;
+        top: 80px;
+        width: 380px;
+        height: 300px;
+    }
+    60% {
+        z-index: 3;
+    }
+    100% {
+        z-index: 3;
+        top: 370px;
+        width: 380px;
+        height: 300px;
+
+    }
+
 }
 /**/
 #image {
@@ -83,10 +118,21 @@ body {
     position: relative;
     top: 20px;
     margin: auto;
-    animation:imagen 10s forwards;
     display: none;
 }
-@keyframes imagens {
+@keyframes image {
+    0% {
+    display: none;
+
+    }
+    50%,99% {
+    display: none;
+    }
+    100% {
+    display: block;
+    }
+}
+@keyframes image1 {
     0% {
     display: none;
 
@@ -95,9 +141,10 @@ body {
     display: none;
     }
     100% {
-    display: block;
+    display: none;
     }
 }
+
 #image img{
     width: 100%;
 }
@@ -128,10 +175,22 @@ body {
 }
 /**/
 #texto {
-    animation: texto 10s forwards;
+    font-size: 15px;
     display: none;
 }
-@keyframes textos {
+@keyframes texto {
+    0% {
+    display: none;
+
+    }
+    50%,99% {
+    display: none;
+    }
+    100% {
+    display: block;
+    }
+}
+@keyframes texto1 {
     0% {
     display: none;
 
@@ -140,6 +199,6 @@ body {
     display: none;
     }
     100% {
-    display: block;
+    display: none;
     }
 }
