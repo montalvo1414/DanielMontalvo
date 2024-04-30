@@ -44,6 +44,12 @@ function loadTrack(trackIndex) {
     const track = tracks[trackIndex];
     audioPlayer.src = track.src;
     currentTrackInfo.textContent = track.name;
+    audioPlayer.addEventListener('loadedmetadata', () => {
+        const durationMinutes = Math.floor(audioPlayer.duration / 60);
+        const durationSeconds = Math.floor(audioPlayer.duration % 60);
+        const durationString = `${durationMinutes}:${durationSeconds < 10 ? '0' : ''}${durationSeconds}`;
+        document.getElementById('duration').textContent = durationString;
+    });
     playPause();
 }
 
@@ -74,6 +80,15 @@ function showPlayer() {
     } else {
         document.getElementById('player').style.display = 'block';
     }
+    const trackItems = document.getElementById('track-list').getElementsByTagName('li');
+    // Itera sobre los elementos <li> y agrega una clase 'playing' al que esté reproduciéndose
+    for (let i = 0; i < trackItems.length; i++) {
+        if (i === currentTrackIndex) {
+            trackItems[i].classList.add('repro');
+        } else {
+            trackItems[i].classList.remove('repro');
+        }
+    }
 }
 
 audioPlayer.addEventListener('play', showPlayer);
@@ -100,6 +115,11 @@ nextTrackBtn.addEventListener('click', nextTrack);
 audioPlayer.addEventListener('timeupdate', () => {
     const progressPercentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
     progressBar.style.width = `${progressPercentage}%`;
+    const currentTimeMinutes = Math.floor(audioPlayer.currentTime / 60);
+    const currentTimeSeconds = Math.floor(audioPlayer.currentTime % 60);
+    const currentTimeString = `${currentTimeMinutes}:${currentTimeSeconds < 10 ? '0' : ''}${currentTimeSeconds}`;
+    // Actualiza un elemento HTML para mostrar el tiempo transcurrido
+    document.getElementById('current-time').textContent = currentTimeString;
 });
 volumeBar.style.width = '100%';
 audioPlayer.volume = 1.0;
