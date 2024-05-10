@@ -16,7 +16,9 @@ body {
     position: absolute;
     text-align: center;
 }
-
+#notificacion2 {
+    display: none;
+}
 /**/
 
 #todo {
