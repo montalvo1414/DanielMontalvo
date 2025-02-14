@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fuegos Artificiales con Cuenta Regresiva</title>
+  <style>
+    /* Para que padding y borde se incluyan en el ancho total */
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      position: relative;
+    }
+
+    canvas {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    #startButton {
+      width: 25%;
+      height: 25%;
+      background: black;
+      color: white;
+      font-size: 5vw;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    #countdown {
+      display: none;
+      position: absolute;
+      font-size: 10vw;
+      font-weight: bold;
+      color: white;
+      z-index: 10;
+    }
+
+    /* Estilos para la carta centrada */
+    #letter {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 600px;
+      height: 90%;
+      max-height: 600px;
+      background: rgba(255, 192, 203, 0.986);
+      color: red;
+      font-size: 3vw;
+      text-align: center;
+      z-index: 20;
+      border-radius: 20px;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    /* Título en la parte superior */
+    #letter h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Imagen flotante a la derecha con margen de 2px */
+    .card-image {
+      float: right;
+      width: 20vh;
+      height: auto; /* Mantiene la proporción original */
+      margin: 2px;
+    }
+
+    /* Texto con margen de 2px */
+    #letter p {
+      text-align: justify;
+      line-height: 1.5;
+      margin: 2px;
+    }
+    
+    /* Botón para ir a otra página */
+    #nextPageButton {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 1.5vw;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <button id="startButton">Lanzar Fuegos Artificiales</button>
+  <div id="countdown">10</div>
+  <div id="letter">
+    <h1>Te Amo Ariana</h1>
+    <img src="img/ariana.jpeg" alt="Imagen" class="card-image" />
+    <p>
+      Este es un mensaje especial para ti. El amor y la pasión se reflejan en cada destello de luz,
+      al igual que en cada palabra que deseo decirte. Espero que disfrutes de este detalle, el cual
+      se acompaña de un espectáculo de fuegos artificiales que ilumina el cielo, tal como tú iluminas mi
+      vida.
+    </p>
+    <button id="nextPageButton" onclick="location.href='pagina_secreta.html'">Ir a la página</button>
+  </div>
+  <canvas id="fireworks"></canvas>
+
+  <script>
+    const canvas = document.getElementById("fireworks");
+    const ctx = canvas.getContext("2d");
+    const button = document.getElementById("startButton");
+    const countdownEl = document.getElementById("countdown");
+    const letter = document.getElementById("letter");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let fireworks = [];
+
+    class Firework {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.exploded = false;
+        this.speedY = -5;
+        this.explosionY = Math.random() * (canvas.height / 2);
+        this.particles = [];
+      }
+
+      update() {
+        if (!this.exploded) {
+          this.y += this.speedY;
+          if (this.y <= this.explosionY) {
+            this.exploded = true;
+            this.createParticles();
+          }
+        } else {
+          this.particles.forEach(p => {
+            p.x += Math.cos(p.angle) * p.speed;
+            p.y += Math.sin(p.angle) * p.speed;
+            p.speed *= 0.95;
+            p.opacity -= 0.01;
+          });
+        }
+      }
+
+      createParticles() {
+        for (let i = 0; i < 100; i++) {
+          this.particles.push({
+            x: this.x,
+            y: this.y,
+            angle: Math.random() * Math.PI * 2,
+            speed: Math.random() * 8 + 3,
+            opacity: 1
+          });
+        }
+      }
+
+      draw() {
+        if (!this.exploded) {
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, 6, 0, Math.PI * 2);
+          ctx.fill();
+        } else {
+          this.particles.forEach(p => {
+            ctx.globalAlpha = p.opacity;
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+            ctx.fill();
+          });
+        }
+      }
+    }
+
+    function createFirework() {
+      let x = Math.random() * canvas.width;
+      let y = canvas.height;
+      let color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      fireworks.push(new Firework(x, y, color));
+    }
+
+    function animate() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      fireworks.forEach((firework, index) => {
+        firework.update();
+        firework.draw();
+        if (firework.exploded && firework.particles[0].opacity <= 0) {
+          fireworks.splice(index, 1);
+        }
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    button.addEventListener("click", () => {
+      button.style.display = "none";
+      canvas.style.display = "block";
+      countdownEl.style.display = "block";
+      document.body.style.background = "black";
+      animate();
+
+      let countdown = 10;
+      const countdownInterval = setInterval(() => {
+        countdown--;
+        countdownEl.textContent = countdown;
+
+        createFirework();
+
+        if (countdown <= 0) {
+          clearInterval(countdownInterval);
+          countdownEl.style.display = "none";
+          letter.style.display = "block";
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* 100% de la altura de la ventana */
+    background: url('https://www.transparenttextures.com/patterns/heart-pattern.png'), linear-gradient(to right, #ff758c, #ff7eb3);
+}
+.div1, .div3 {
+    flex: 20%;
+}
+.div1 p {
+    color: white;
+    font-size: 10vw;
+    margin-top: 20px;
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+.div2 {
+    flex: 60%;
+    display: flex; /* Usar flex para centrar contenido */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+
+.div2 img {
+    transform: rotate(10deg) scaleX(-1); /* Rota 10° y refleja la imagen */
+    display: block; /* Evita espacios adicionales */
+    width: 300px;
+    animation: balanceo 1s infinite alternate ease-in-out;
+}
+
+@keyframes balanceo {
+    0% {
+        transform: rotate(10deg) scaleX(-1);
+    }
+    100% {
+        transform: rotate(-10deg) scaleX(1);
+    }
+}
+.div3 {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espacio entre los botones */
+}
+
+.button {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    text-transform: uppercase;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón "Sí" */
+.button-si {
+    background-color: #ff4d79;
+    color: white;
+}
+
+.button-si:hover {
+    background-color: #ff1a5c;
+    transform: scale(1.1);
+}
+
+/* Botón "No" */
+.button-no {
+    background-color: #ffffff;
+    color: #ff4d79;
+    border: 2px solid #ff4d79;
+}
+
+.button-no:hover {
+    background-color: #ff4d79;
+    color: white;
+    transform: scale(1.1);
+}
