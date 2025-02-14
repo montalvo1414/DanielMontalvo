@@ -22,6 +22,7 @@
     h1 {
       margin: 20px 0;
       font-size: 2em;
+      text-align: center;
     }
 
     .thumbnail {
@@ -52,14 +53,19 @@
     .modal-content {
       width: 90%;
       height: 90%;
-      background-color: #fff;
+      background-color: white;
       border-radius: 10px;
       overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .modal iframe {
+    .pdf-viewer {
       width: 100%;
       height: 100%;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
     }
 
     .close-btn {
@@ -87,6 +93,12 @@
       cursor: pointer;
       font-size: 1.2em;
     }
+
+    canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -108,7 +120,7 @@
   <div id="modal" class="modal">
     <button class="close-btn" onclick="closeModal()">Cerrar</button>
     <div class="modal-content">
-      <iframe src="san valentin.PDF" title="PDF de San Valentín"></iframe>
+      <div id="pdf-container" class="pdf-viewer"></div>
     </div>
   </div>
 
@@ -118,11 +130,13 @@
     // Función para abrir el modal con el PDF
     function openModal() {
       document.getElementById('modal').style.display = 'flex';
+      loadPDF(pdfUrl);
     }
 
     // Función para cerrar el modal
     function closeModal() {
       document.getElementById('modal').style.display = 'none';
+      document.getElementById('pdf-container').innerHTML = ''; // Limpiar contenido
     }
 
     // Cargar la miniatura del PDF
@@ -142,6 +156,33 @@
         });
       });
     });
+
+    // Función para cargar todas las páginas del PDF
+    function loadPDF(url) {
+      pdfjsLib.getDocument(url).promise.then(function(pdf) {
+        const container = document.getElementById('pdf-container');
+
+        for (let i = 1; i <= pdf.numPages; i++) {
+          pdf.getPage(i).then(function(page) {
+            const scale = 1.2;
+            const viewport = page.getViewport({ scale: scale });
+
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+
+            const renderContext = {
+              canvasContext: context,
+              viewport: viewport
+            };
+
+            page.render(renderContext);
+            container.appendChild(canvas);
+          });
+        }
+      });
+    }
   </script>
 
 </body>
