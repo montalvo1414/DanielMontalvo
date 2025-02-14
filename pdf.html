@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    h1 {
+      margin: 20px 0;
+      font-size: 2em;
+    }
+
+    .thumbnail {
+      width: 150px;
+      height: 100px;
+      background-color: #444;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      width: 90%;
+      height: 90%;
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #f44336;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.2em;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #008CBA;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Botón para regresar -->
+  <a href="pagina.html">
+    <button class="back-btn">Volver</button>
+  </a>
+
+  <!-- Título PDF -->
+  <h1>PDF</h1>
+
+  <!-- Miniatura del PDF -->
+  <div class="thumbnail" onclick="openModal()">
+    <canvas id="pdf-thumbnail"></canvas>
+  </div>
+
+  <!-- Modal para mostrar el PDF -->
+  <div id="modal" class="modal">
+    <button class="close-btn" onclick="closeModal()">Cerrar</button>
+    <div id="modal-content" class="modal-content">
+      <!-- PDF se cargará aquí -->
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
+  <script>
+    const pdfUrl = 'San Valentin.PDF'; // Ruta del archivo PDF
+
+    // Cargar la miniatura del PDF
+    pdfjsLib.getDocument(pdfUrl).promise.then(function (pdf) {
+      pdf.getPage(1).then(function (page) {
+        const scale = 0.3; // Ajuste de tamaño para la miniatura
+        const viewport = page.getViewport({ scale: scale });
+
+        const canvas = document.getElementById('pdf-thumbnail');
+        const context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        page.render({
+          canvasContext: context,
+          viewport: viewport
+        });
+      });
+    });
+
+    // Función para abrir el modal
+    function openModal() {
+      const modal = document.getElementById('modal');
+      const modalContent = document.getElementById('modal-content');
+
+      // Limpiar contenido previo
+      modalContent.innerHTML = '';
+
+      // Cargar el PDF y mostrarlo en el modal
+      pdfjsLib.getDocument(pdfUrl).promise.then(function (pdf) {
+        const numPages = pdf.numPages;
+
+        let currentPage = 1;
+
+        // Función para renderizar la página del PDF
+        function renderPage(pageNum) {
+          pdf.getPage(pageNum).then(function (page) {
+            const scale = 1.5;
+            const viewport = page.getViewport({ scale: scale });
+
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            page.render({
+              canvasContext: context,
+              viewport: viewport
+            });
+
+            modalContent.appendChild(canvas);
+          });
+        }
+
+        // Renderizar la primera página
+        renderPage(currentPage);
+
+        // Hacer que el modal se muestre
+        modal.style.display = 'flex';
+
+        // Desplazarse por las páginas al hacer scroll
+        modalContent.addEventListener('wheel', function (e) {
+          if (e.deltaY > 0 && currentPage < numPages) {
+            currentPage++;
+          } else if (e.deltaY < 0 && currentPage > 1) {
+            currentPage--;
+          }
+
+          modalContent.innerHTML = ''; // Limpiar contenido actual
+          renderPage(currentPage); // Renderizar la página actual
+        });
+      });
+    }
+
+    // Función para cerrar el modal
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
