@@ -66,6 +66,7 @@ body {
 .button-si {
     background-color: #ff4d79;
     color: white;
+    text-decoration: none;
 }
 
 .button-si:hover {
@@ -78,6 +79,7 @@ body {
     background-color: #ffffff;
     color: #ff4d79;
     border: 2px solid #ff4d79;
+    text-decoration: none;
 }
 
 .button-no:hover {
