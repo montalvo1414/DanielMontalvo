@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipbook Interactivo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4/turn.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #flipbook {
+            width: 600px;
+            height: 400px;
+        }
+        .page {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="flipbook">
+        <div class="page">Página 1</div>
+        <div class="page">Página 2</div>
+        <div class="page">Página 3</div>
+        <div class="page">Página 4</div>
+    </div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4/turn.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#flipbook').turn({
+            width: 600,
+            height: 400,
+            autoCenter: true
+        });
+    });
+</script>
+
+</body>
+</html>
