@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flipbook Realista</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
     <style>
         body {
@@ -33,14 +33,8 @@
     </style>
 </head>
 <body>
-    <div id="book">
-        <div class="page">Feliz aniversario mi amor<br><br>Hoy es un día muy especial para nosotros un día que marca el inicio de algo hermoso...</div>
-        <div class="page">Nos encontramos de forma especial el destino nos quiso juntar...</div>
-        <div class="page">La distancia nos pone a prueba pero nuestro amor no tiene final...</div>
-        <div class="page">Cierro los ojos y puedo verte tan hermosa como un amanecer...</div>
-        <div class="page">Eres mi amor mi niña mi vida mi preciosa mi todo...</div>
-    </div><script>
-    document.addEventListener("DOMContentLoaded", function() {
+    <div id="book"></div><script>
+    document.addEventListener("DOMContentLoaded", async function() {
         const flipbook = new St.PageFlip(
             document.getElementById("book"), {
                 width: 600, 
@@ -57,6 +51,25 @@
                 useMouse: true
             }
         );
+        
+        const url = "san valentin.pdf";
+        const pdf = await pdfjsLib.getDocument(url).promise;
+        
+        for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const viewport = page.getViewport({ scale: 1.5 });
+            const canvas = document.createElement("canvas");
+            const context = canvas.getContext("2d");
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+            await page.render({ canvasContext: context, viewport: viewport }).promise;
+            
+            const pageDiv = document.createElement("div");
+            pageDiv.classList.add("page");
+            pageDiv.appendChild(canvas);
+            document.getElementById("book").appendChild(pageDiv);
+        }
+        
         flipbook.loadFromHTML(document.querySelectorAll(".page"));
     });
 </script>
