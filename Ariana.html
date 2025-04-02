@@ -2,8 +2,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flipbook Interactivo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4/turn.min.css">
+    <title>Flipbook Realista</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.min.js"></script>
     <style>
         body {
             display: flex;
@@ -12,7 +13,7 @@
             height: 100vh;
             background-color: #f0f0f0;
         }
-        #flipbook {
+        #book {
             width: 600px;
             height: 400px;
         }
@@ -32,23 +33,31 @@
     </style>
 </head>
 <body>
-    <div id="flipbook">
+    <div id="book">
         <div class="page">Feliz aniversario mi amor<br><br>Hoy es un día muy especial para nosotros un día que marca el inicio de algo hermoso...</div>
         <div class="page">Nos encontramos de forma especial el destino nos quiso juntar...</div>
         <div class="page">La distancia nos pone a prueba pero nuestro amor no tiene final...</div>
         <div class="page">Cierro los ojos y puedo verte tan hermosa como un amanecer...</div>
         <div class="page">Eres mi amor mi niña mi vida mi preciosa mi todo...</div>
-    </div><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4/turn.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#flipbook').turn({
-            width: 600,
-            height: 400,
-            autoCenter: true,
-            gradients: true,
-            acceleration: true
-        });
+    </div><script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const flipbook = new St.PageFlip(
+            document.getElementById("book"), {
+                width: 600, 
+                height: 400, 
+                size: "fixed",
+                minWidth: 400,
+                minHeight: 300,
+                maxWidth: 800,
+                maxHeight: 600,
+                autoSize: true,
+                maxShadowOpacity: 0.5,
+                showCover: true,
+                flippingTime: 700,
+                useMouse: true
+            }
+        );
+        flipbook.loadFromHTML(document.querySelectorAll(".page"));
     });
 </script>
 
