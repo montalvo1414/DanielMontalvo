@@ -12,10 +12,11 @@
             align-items: center;
             height: 100vh;
             background-color: #f0f0f0;
+            overflow: hidden;
         }
         #book {
-            width: 600px;
-            height: 400px;
+            width: 100vw;
+            height: 100vh;
         }
         .page {
             width: 100%;
@@ -24,11 +25,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 24px;
             font-family: Arial, sans-serif;
-            border: 1px solid #ccc;
-            padding: 20px;
             text-align: center;
+        }
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -37,13 +40,9 @@
     document.addEventListener("DOMContentLoaded", async function() {
         const flipbook = new St.PageFlip(
             document.getElementById("book"), {
-                width: 600, 
-                height: 400, 
-                size: "fixed",
-                minWidth: 400,
-                minHeight: 300,
-                maxWidth: 800,
-                maxHeight: 600,
+                width: window.innerWidth, 
+                height: window.innerHeight, 
+                size: "stretch",
                 autoSize: true,
                 maxShadowOpacity: 0.5,
                 showCover: true,
@@ -57,7 +56,7 @@
         
         for (let i = 1; i <= pdf.numPages; i++) {
             const page = await pdf.getPage(i);
-            const viewport = page.getViewport({ scale: 1.5 });
+            const viewport = page.getViewport({ scale: 2 });
             const canvas = document.createElement("canvas");
             const context = canvas.getContext("2d");
             canvas.width = viewport.width;
