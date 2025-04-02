@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +14,12 @@
             height: 100vh;
             background-color: #f0f0f0;
             overflow: hidden;
+            margin: 0;
         }
         #book {
             width: 100vw;
             height: 100vh;
+            perspective: 1500px;
         }
         .page {
             width: 100%;
@@ -27,8 +30,11 @@
             align-items: center;
             font-family: Arial, sans-serif;
             text-align: center;
+            padding: 20px;
+            transform-style: preserve-3d;
+            transition: transform 1s;
         }
-        canvas {
+        .page canvas {
             width: 100% !important;
             height: 100% !important;
             object-fit: cover;
@@ -36,42 +42,44 @@
     </style>
 </head>
 <body>
-    <div id="book"></div><script>
-    document.addEventListener("DOMContentLoaded", async function() {
-        const flipbook = new St.PageFlip(
-            document.getElementById("book"), {
-                width: window.innerWidth, 
-                height: window.innerHeight, 
-                size: "stretch",
-                autoSize: true,
-                maxShadowOpacity: 0.5,
-                showCover: true,
-                flippingTime: 700,
-                useMouse: true
-            }
-        );
-        
-        const url = "san valentin.pdf";
-        const pdf = await pdfjsLib.getDocument(url).promise;
-        
-        for (let i = 1; i <= pdf.numPages; i++) {
-            const page = await pdf.getPage(i);
-            const viewport = page.getViewport({ scale: 2 });
-            const canvas = document.createElement("canvas");
-            const context = canvas.getContext("2d");
-            canvas.width = viewport.width;
-            canvas.height = viewport.height;
-            await page.render({ canvasContext: context, viewport: viewport }).promise;
-            
-            const pageDiv = document.createElement("div");
-            pageDiv.classList.add("page");
-            pageDiv.appendChild(canvas);
-            document.getElementById("book").appendChild(pageDiv);
-        }
-        
-        flipbook.loadFromHTML(document.querySelectorAll(".page"));
-    });
-</script>
+    <div id="book"></div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            const flipbook = new St.PageFlip(
+                document.getElementById("book"), {
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                    size: "stretch",
+                    maxShadowOpacity: 0.5,
+                    showCover: true,
+                    flippingTime: 700,
+                    useMouse: true,
+                    gradients: true,
+                    acceleration: true
+                }
+            );
 
+            const url = "san valentin.pdf";
+            const pdf = await pdfjsLib.getDocument(url).promise;
+
+            for (let i = 1; i <= pdf.numPages; i++) {
+                const page = await pdf.getPage(i);
+                const viewport = page.getViewport({ scale: 2 });
+                const canvas = document.createElement("canvas");
+                const context = canvas.getContext("2d");
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                await page.render({ canvasContext: context, viewport: viewport }).promise;
+
+                const pageDiv = document.createElement("div");
+                pageDiv.classList.add("page");
+                pageDiv.appendChild(canvas);
+                document.getElementById("book").appendChild(pageDiv);
+            }
+
+            flipbook.loadFromHTML(document.querySelectorAll(".page"));
+        });
+    </script>
 </body>
 </html>
